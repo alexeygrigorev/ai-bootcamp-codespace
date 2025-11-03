@@ -1,0 +1,15 @@
+[project]
+name = "code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jaxn>=0.0.1",
+    "minsearch>=0.0.7",
+    "openai>=1.109.1",
+    "pydantic-ai>=1.0.17",
+    "python-frontmatter>=1.1.0",
+    "requests>=2.32.5",
+    "tiktoken>=0.12.0",
+]

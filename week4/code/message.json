@@ -1,0 +1,54 @@
+{
+    "found_answer": true,
+    "title": "Monitoring Data Drift in Production",
+    "sections": [
+        {
+            "heading": "Overview",
+            "content": "Monitoring data drift in production is essential for ensuring the continued performance of machine learning models. Data drift occurs when the statistical properties of the input data to a model change over time, potentially leading to degraded model performance. Evidently provides tools to detect, analyze, and respond to such changes effectively.",
+            "references": [
+                {
+                    "title": "Data Drift",
+                    "filename": "metrics/preset_data_drift.mdx"
+                }
+            ]
+        },
+        {
+            "heading": "How to Monitor Data Drift Using Evidently",
+            "content": "You can effectively monitor data drift by utilizing the `DataDriftPreset` from the Evidently library. Here’s a general workflow:\n\n1. **Prepare Two Datasets:** You will need a current dataset (the most recent data) and a reference dataset (historical data that the model was trained on).\n   \n2. **Set Up the Evaluation Report:**\n   ```python\n   from evidently.report import Report\n   from evidently.preset import DataDriftPreset\n   \n   report = Report([\n       DataDriftPreset(),\n   ])\n   \n   my_eval = report.run(current_data, reference_data)\n   ```\n   This code initializes a report to check for data drift between two datasets. \n\n3. **Analyze Results:** The report will include metrics such as: \n   - Column drift status for each feature.\n   - Overall dataset drift, indicating the share of columns that have drifted.\n   \n4. **Customize and Extend:** You can integrate other tests and metrics to evaluate model performance comprehensively, such as checking for prediction drift or data quality issues.\n\n5. **Automate and Schedule Reports:** Consider using tools like Airflow to run these reports periodically or after significant data updates. You can backdate reports with custom timestamps.",
+            "references": [
+                {
+                    "title": "Data Drift",
+                    "filename": "metrics/preset_data_drift.mdx"
+                },
+                {
+                    "title": "Monitoring Workflows",
+                    "filename": "docs/platform/monitoring_local_batch.mdx"
+                }
+            ]
+        },
+        {
+            "heading": "Best Practices",
+            "content": "- **Regular Monitoring**: Schedule periodic evaluations to consistently check for drift, ideally aligned with data refresh cycles.\n- **Alerts Setup**: Configure alerts for when drift is detected so you can take appropriate actions such as model retraining or updating data pipelines.\n- **Documentation and Reporting**: Maintain thorough documentation of drift occurrences and responses to understand trends and improve model management over time.",
+            "references": [
+                {
+                    "title": "Best Practices for Monitoring Data Drift",
+                    "filename": "metrics/explainer_drift.mdx"
+                }
+            ]
+        }
+    ],
+    "references": [
+        {
+            "title": "Data Drift",
+            "filename": "metrics/preset_data_drift.mdx"
+        },
+        {
+            "title": "Monitoring Workflows",
+            "filename": "docs/platform/monitoring_local_batch.mdx"
+        },
+        {
+            "title": "Best Practices for Monitoring Data Drift",
+            "filename": "metrics/explainer_drift.mdx"
+        }
+    ]
+}
