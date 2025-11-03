@@ -1,0 +1,154 @@
+================================================================================
+GROUND TRUTH EVALUATION
+================================================================================
+
+
+================================================================================
+QUESTION 1/10: where do capybaras live?
+================================================================================
+
+ANSWER:
+Capybaras, the largest living rodents, are native to **South America**, where they inhabit a variety of environments. These animals prefer areas close to **bodies of water**, including rivers, lakes, swamps, and marshes, which are essential for their semi-aquatic lifestyle. They are often found in **savannas** and **dense forests**, thriving in wetlands and tropical rainforests throughout South America, except for **Chile**.
+
+They are social animals, commonly living in groups of around 10 to 20 individuals, although larger groups of up to 100 can congregate during dry seasons around available water sources. Capybaras are also known to adapt well to environments modified by humans, often seen flourishing in cattle ranches and even urban areas where water is accessible. Their capability as swimmers aids in their survival, enabling them to evade predators by submerging themselves in water for extended periods, up to five minutes at a time [Capybara](https://en.wikipedia.org/wiki/Capybara).
+
+
+================================================================================
+QUESTION 2/10: what is the capital of Estonia?
+================================================================================
+
+ANSWER:
+The capital of Estonia is **Tallinn**. It is the largest city in the country and serves as its main governmental, financial, cultural, and industrial center. Tallinn is situated on the northern coast of Estonia, along the Gulf of Finland, and features a rich historical heritage, especially visible in its medieval Old Town, which is recognized as a UNESCO World Heritage Site. The city has a population of approximately 456,518 residents as of 2025.
+
+Tallinn was historically known as **Reval**, which was its name for many centuries until Estonia regained independence in 1918 and the name Tallinn was officially adopted. The city offers significant insights into the country’s history and culture, including notable attractions like Toompea Castle, the Alexander Nevsky Cathedral, and various museums and galleries.
+
+For further details, you can read more about Tallinn on its [Wikipedia page](https://en.wikipedia.org/wiki/Tallinn).
+
+
+================================================================================
+QUESTION 3/10: when was the first computer invented?
+================================================================================
+
+ANSWER:
+The invention of the first computer is often attributed to Charles Babbage, who designed the Analytical Engine in the 1830s. Babbage's machine is considered to be the first concept of a general-purpose mechanical computer. The Analytical Engine included key features of modern computers, such as an arithmetic logic unit, control flow through conditional branching and loops, and memory. However, it was never fully constructed during his lifetime.
+
+Another significant early computing device was the Z3, created by Konrad Zuse in 1941, which is considered the world's first working electromechanical programmable computer. Zuse's Z3 used binary arithmetic and was capable of being programmed using a punched film.
+
+The first fully electronic digital computer, known as ENIAC (Electronic Numerical Integrator and Computer), was completed in 1945. It was designed to perform complex calculations for the United States Army during World War II and became operational after the war.
+
+For additional details on the history of significant early computing devices and their inventors, you may refer to the articles on the [History of computing](https://en.wikipedia.org/wiki/History_of_computing) and the [History of computing hardware](https://en.wikipedia.org/wiki/History_of_computing_hardware).
+
+### References
+- [History of computing](https://en.wikipedia.org/wiki/History_of_computing)
+- [History of computing hardware](https://en.wikipedia.org/wiki/History_of_computing_hardware)
+
+
+================================================================================
+QUESTION 4/10: who wrote Pride and Prejudice?
+================================================================================
+
+ANSWER:
+**Pride and Prejudice** was written by the English author **Jane Austen**. It is her second published novel, coming out in 1813, although it was the third novel she completed. Austen wrote it when she was between the ages of 20 and 21. The story follows Elizabeth Bennet, one of the five daughters in the Bennet family, focusing on themes of social class, marriage, and individual growth, particularly through the lens of Elizabeth's evolving relationship with Mr. Darcy.
+
+The novel has since become one of the most beloved and studied works in English literature, with millions of copies sold and numerous adaptations in film, television, and theater [source: [Pride and Prejudice](https://en.wikipedia.org/wiki/Pride_and_Prejudice), [Jane Austen](https://en.wikipedia.org/wiki/Jane_Austen)].
+
+
+================================================================================
+QUESTION 5/10: what is the population of Tokyo?
+================================================================================
+
+ANSWER:
+As of May 2025, the population of Tokyo is approximately **14,254,039**. This figure reflects the metropolitan area of Tokyo, which is recognized as the most populous city in Japan and one of the most populous urban areas globally. Notably, the population density for Tokyo is about **6,363 people per square kilometer**.
+
+The Greater Tokyo Area, which encompasses Tokyo Metropolis and parts of surrounding prefectures, has an even larger population, estimated at about **41 million residents**, making it the most populous metropolitan area in the world [source](https://en.wikipedia.org/wiki/Tokyo) and [source](https://en.wikipedia.org/wiki/Demographics_of_Tokyo).
+
+For further context, Tokyo has seen fluctuations in its population due to various factors including migrations and demographic changes. As a leading global city, it continues to attract people for its economic opportunities and urban lifestyle, despite a declining birth rate that recently recorded a total fertility rate of only **0.99** [source](https://en.wikipedia.org/wiki/Demographics_of_Tokyo).
+
+
+================================================================================
+QUESTION 6/10: what are the main ingredients in pizza?
+================================================================================
+
+ANSWER:
+The main ingredients in traditional pizza include:
+
+1. **Dough**: Typically made from wheat flour, water, yeast, and salt. The dough is leavened and forms the base of the pizza.
+2. **Sauce**: Most commonly, this is a tomato sauce, which may also include herbs and spices such as oregano or basil.
+3. **Cheese**: The most popular cheese used is mozzarella, specifically buffalo mozzarella in authentic Neapolitan pizza. Other cheeses may include Parmesan, Gorgonzola, or provolone.
+
+Additional toppings can vary widely and may include meats (like pepperoni, sausage, or ham), vegetables (such as bell peppers, onions, or mushrooms), and other items (like olives or anchovies) depending on the style and regional preferences [Pizza](https://en.wikipedia.org/wiki/Pizza)
+
+
+================================================================================
+QUESTION 7/10: when did World War II end?
+================================================================================
+
+ANSWER:
+World War II officially ended in two phases:
+
+1. **In Europe**: The war concluded with the unconditional surrender of Nazi Germany on **May 8, 1945**, which is celebrated as **Victory in Europe Day (V-E Day)**. The surrender was formalized when Field Marshal Wilhelm Keitel signed the German Instrument of Surrender in Berlin. Although the fighting continued for a few days after this date, it marked the official end of hostilities in Europe.
+
+2. **In Asia**: The formal end of World War II occurred after Japan's surrender on **September 2, 1945**. This surrender followed the dropping of atomic bombs on Hiroshima and Nagasaki in August 1945 and the Soviet declaration of war against Japan. The surrender was signed aboard the USS Missouri in Tokyo Bay, officially marking Japan's capitulation and the end of the war in the Pacific Theater.
+
+The overall dates signify that while the war in Europe ended in May, the global conflict did not conclude until September 2, when Japan surrendered, officially finalizing the end of World War II worldwide.
+
+For further details, you can refer to the following sources:
+- [End of World War II in Europe](https://en.wikipedia.org/wiki/End_of_World_War_II_in_Europe)
+- [End of World War II in Asia](https://en.wikipedia.org/wiki/End_of_World_War_II_in_Asia)
+- [World War II](https://en.wikipedia.org/wiki/World_War_II).
+
+
+================================================================================
+QUESTION 8/10: what is the largest planet in our solar system?
+================================================================================
+
+ANSWER:
+The largest planet in our solar system is **Jupiter**. It is a gas giant and significantly more massive than all the other planets combined. Specifically, Jupiter has a diameter of about 86,881 miles (139,822 kilometers), making it roughly 11 times wider than Earth. In terms of mass, Jupiter is approximately 318 times the mass of Earth, and it accounts for nearly 70% of the total planetary mass in our solar system.
+
+Jupiter is known for its prominent bands of clouds, the famous Great Red Spot, which is a massive storm, and its extensive system of moons, including the four largest known as the Galilean moons: Io, Europa, Ganymede, and Callisto.
+
+For further information, you can refer to the [Jupiter Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html) and the [Solar System](https://en.wikipedia.org/wiki/Solar_System) article on Wikipedia.
+
+
+================================================================================
+QUESTION 9/10: who discovered penicillin?
+================================================================================
+
+ANSWER:
+Penicillin was discovered by Scottish physician and microbiologist **Alexander Fleming** in 1928. Fleming's breakthrough occurred while he was working at St Mary's Hospital in London. He observed that a mold (later identified as *Penicillium notatum*, now known as *Penicillium rubens*) had contaminated one of his bacterial culture plates. This mold inhibited the growth of the surrounding bacteria, leading Fleming to hypothesize that it released an antibacterial substance, which he named "penicillin" [1][2].
+
+Although Fleming identified penicillin, it wasn't until the late 1930s and early 1940s that its potential was realized through the efforts of Howard Florey, Ernst Chain, and their team at the University of Oxford. They developed techniques for mass production and purification of penicillin, making it widely available for medical use, particularly during World War II, where it played a crucial role in treating infections and saving countless lives [1][3].
+
+In recognition of their contributions to the development of penicillin, Fleming, Florey, and Chain were jointly awarded the Nobel Prize in Physiology or Medicine in 1945 [3][4].
+
+### References
+1. [Discovery of penicillin](https://en.wikipedia.org/wiki/Discovery_of_penicillin)
+2. [Alexander Fleming](https://en.wikipedia.org/wiki/Alexander_Fleming)
+3. [History of penicillin](https://en.wikipedia.org/wiki/History_of_penicillin)
+
+
+================================================================================
+QUESTION 10/10: what is the speed of light?
+================================================================================
+
+ANSWER:
+The **speed of light in vacuum**, often referred to as simply the speed of light, is a universal physical constant denoted by \( c \), which is exactly **299,792,458 meters per second** (approximately \( 300,000 \) km/s or \( 186,282 \) miles per second). This value is exact due to the way the meter is defined in relation to the speed of light: one meter is defined as the distance light travels in vacuum in \( \frac{1}{299,792,458} \) of a second.
+
+The speed of light is crucial in physics because it serves as the ultimate speed limit for the transmission of information, energy, and matter according to the theory of relativity. All electromagnetic radiation, including visible light, travels at this speed in vacuum. In materials such as glass or water, light travels slower due to interactions with the medium, which is characterized by the material's refractive index [source](https://en.wikipedia.org/wiki/Speed_of_light).
+
+To summarize, the speed of light in a vacuum is:
+- **Exact value**: \( 299,792,458 \, \text{m/s} \)
+- **Approximate values**:
+  - \( 300,000 \, \text{km/s} \)
+  - \( 186,282 \, \text{miles per second} \) [source](https://en.wikipedia.org/wiki/Speed_of_light).
+
+For more detailed information, you can visit the [Speed of light](https://en.wikipedia.org/wiki/Speed_of_light) page on Wikipedia.
+
+
+================================================================================
+SUMMARY
+================================================================================
+Total questions: 10
+Successful: 10
+Errors: 0
+

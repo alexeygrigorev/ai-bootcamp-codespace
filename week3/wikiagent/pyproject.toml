@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "wikiagent"
+version = "0.1.0"
+description = "A simple Wikipedia agent using Pydantic AI"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic-ai = "^1.0.17"
+requests = "^2.32.5"
+python-dotenv = "^1.2.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+pytest-asyncio = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
