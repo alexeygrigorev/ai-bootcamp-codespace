@@ -1,0 +1,22 @@
+apiVersion: 1
+
+datasources:
+  - name: Postgres-Monitoring
+    uid: PG
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    user: monitoring
+    secureJsonData:
+      password: monitoring
+    jsonData:
+      database: monitoring
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+      timeColumn: created_at
+      timeInterval: 1m
+      maxOpenConns: 100
+      maxIdleConns: 10
+      connMaxLifetime: 14400
+    isDefault: true

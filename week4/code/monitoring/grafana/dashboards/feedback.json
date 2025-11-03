@@ -1,0 +1,68 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "id": null,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Good Feedback %",
+      "id": 1,
+      "gridPos": {"x": 0, "y": 0, "w": 8, "h": 4},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT CASE WHEN COUNT(*)=0 THEN 0 ELSE ROUND(100.0*SUM(CASE WHEN is_good THEN 1 ELSE 0 END)/COUNT(*), 2) END AS good_pct FROM feedback;"
+        }
+      ],
+      "options": {"reduceOptions": {"calcs": ["last"], "fields": "numeric", "values": false}, "orientation": "auto"}
+    },
+    {
+      "type": "stat",
+      "title": "Feedback Count",
+      "id": 2,
+      "gridPos": {"x": 8, "y": 0, "w": 8, "h": 4},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {"refId": "A", "format": "table", "rawSql": "SELECT COUNT(*) AS total FROM feedback;"}
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Good / Bad",
+      "id": 3,
+      "gridPos": {"x": 16, "y": 0, "w": 8, "h": 4},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT SUM(CASE WHEN is_good THEN 1 ELSE 0 END) AS good, SUM(CASE WHEN NOT is_good THEN 1 ELSE 0 END) AS bad FROM feedback;"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Recent Feedback (10)",
+      "id": 4,
+      "gridPos": {"x": 0, "y": 4, "w": 24, "h": 10},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT f.created_at, CASE WHEN f.is_good THEN 'good' ELSE 'bad' END AS verdict, l.model, l.provider, l.user_prompt, f.comments FROM feedback f JOIN llm_logs l ON l.id = f.log_id ORDER BY f.id DESC LIMIT 10;"
+        }
+      ],
+      "options": {"showHeader": true}
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["llm", "monitoring"],
+  "time": {"from": "now-7d", "to": "now"},
+  "title": "LLM Monitoring - Feedback",
+  "uid": "llm-feedback",
+  "version": 1
+}

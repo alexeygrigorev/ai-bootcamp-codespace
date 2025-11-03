@@ -52,6 +52,38 @@ services:
       && python -m monitoring.runner --watch"
     restart: unless-stopped
 
+  faker:
+    image: python:3.12-slim
+    working_dir: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://monitoring:monitoring@postgres:5432/monitoring
+    volumes:
+      - .:/app
+    command: >
+      bash -lc "pip install --no-cache-dir psycopg[binary]>=3.2 \
+      && python -m monitoring.fake_data --count 400 --hours 48"
+    restart: "no"
+
+  grafana:
+    image: grafana/grafana:10.4.7
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_DEFAULT_THEME: light
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+    restart: unless-stopped
+
 volumes:
   pgdata:
-
+  grafana-data:

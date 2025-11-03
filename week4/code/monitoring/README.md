@@ -62,6 +62,35 @@ Run Locally (outside Docker) with Postgres
 
 Note: The hostname `postgres` only resolves inside the Docker Compose network. When running from your host environment (e.g., uv run, python, streamlit on your machine), use `localhost` instead.
 
+Grafana Dashboards
+- Compose includes a `grafana` service on http://localhost:3000 (admin/admin by default).
+- It auto-loads a Postgres datasource and the following dashboards:
+  - "LLM Monitoring - Overview":
+    - Total requests, tokens in/out, total cost
+    - Requests over time
+    - Tokens over time (in/out)
+    - Top models by requests
+    - Last 5 requests table
+  - "LLM Monitoring - Feedback":
+    - Good feedback % and counts
+    - Recent feedback table (joined with logs)
+  - "LLM Monitoring - Eval":
+    - Total eval checks
+    - Pass rate by check
+    - Checks over time
+    - Recent checks table
+- Files live under `monitoring/grafana/` (provisioning + dashboards JSON). Edit queries as needed.
+
+Fake Data Generator
+- To generate sample data into Postgres for dashboards:
+  - Docker: `docker compose run --rm faker`
+  - Locally (using your env `DATABASE_URL`): `python -m monitoring.fake_data --count 300 --hours 24`
+  - Options:
+    - `--count`: number of fake logs to insert (default 200)
+    - `--hours`: spread timestamps across last N hours (default 24)
+    - `--feedback-rate`: probability a log gets feedback (default 0.5)
+    - `--good-ratio`: probability feedback is good among those with feedback (default 0.65)
+
 Schema
 - llm_logs: one row per log file
 - eval_checks: multiple rows per log (one per CheckName)
