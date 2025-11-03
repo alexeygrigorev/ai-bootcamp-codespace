@@ -1,0 +1,25 @@
+[project]
+name = "code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "evidently>=0.7.15",
+    "minsearch>=0.0.7",
+    "openai>=1.109.1",
+    "pydantic-ai>=1.0.17",
+    "python-frontmatter>=1.1.0",
+    "requests>=2.32.5",
+    "tiktoken>=0.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "langwatch-scenario>=0.7.13",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "streamlit>=1.40.0",
+    "toyaikit>=0.0.5",
+]
