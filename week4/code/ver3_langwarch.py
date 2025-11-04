@@ -38,7 +38,7 @@ class SearchResultArticleHandler(JSONParserHandler):
             print(f"- [{item['title']}]({item['filename']})")
 
 
-@langwatch.trace
+@langwatch.trace()
 async def main():
     user_input = "How do I monitor data drift in production?"
 
