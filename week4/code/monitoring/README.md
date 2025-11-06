@@ -17,9 +17,11 @@ Environment
  - DEBUG or MONITORING_DEBUG: set to 1/true to enable debug logs
 
 Run
-- One-shot: python -m monitoring.runner
-- Watch mode: python -m monitoring.runner --watch
-- Debug: add --debug flag or set DEBUG=1
+
+- `export DATABASE_URL=postgresql://monitoring:monitoring@localhost:5432/monitoring`
+- One-shot: `uv run python -m monitoring.runner`
+- Watch mode: `uv run python -m monitoring.runner --watch`
+- Debug: add `--debug` flag or set DEBUG=1
 
 Streamlit App
 - Launch: streamlit run monitoring/app.py
@@ -58,7 +60,7 @@ Run Locally (outside Docker) with Postgres
   - `export DATABASE_URL=postgresql://monitoring:monitoring@localhost:5432/monitoring`
 - Then run locally:
   - Poller: `python -m monitoring.runner --watch --debug`
-  - App: `streamlit run monitoring/app.py`
+  - App: `PYTHONPATH='.' uv run streamlit run monitoring/app.py`
 
 Note: The hostname `postgres` only resolves inside the Docker Compose network. When running from your host environment (e.g., uv run, python, streamlit on your machine), use `localhost` instead.
 
@@ -84,7 +86,7 @@ Grafana Dashboards
 Fake Data Generator
 - To generate sample data into Postgres for dashboards:
   - Docker: `docker compose run --rm faker`
-  - Locally (using your env `DATABASE_URL`): `python -m monitoring.fake_data --count 300 --hours 24`
+  - Locally (using your env `DATABASE_URL`): `uv run python -m monitoring.fake_data --count 300 --hours 24`
   - Options:
     - `--count`: number of fake logs to insert (default 200)
     - `--hours`: spread timestamps across last N hours (default 24)
