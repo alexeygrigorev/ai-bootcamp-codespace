@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	uv run pytest -s
+	poetry run pytest -s
