@@ -7,18 +7,20 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-elasticsearch = ">=9.1.1"
+jaxn = ">=0.0.1"
 jupyter = ">=1.1.1"
 minsearch = ">=0.0.7"
-openai-agents = "==0.3.3"
+openai-agents = "==0.5.0"
 pydantic-ai = ">=1.0.17"
 python-frontmatter = ">=1.1.0"
-qdrant-client = {extras = ["fastembed"], version = ">=1.15.1"}
 requests = ">=2.32.5"
-sentence-transformers = ">=5.1.1"
 toyaikit = "==0.0.5"
 tqdm = ">=4.67.1"
 youtube-transcript-api = ">=1.2.2"
+# Additional dependencies from local setup
+elasticsearch = ">=9.1.1"
+qdrant-client = {extras = ["fastembed"], version = ">=1.15.1"}
+sentence-transformers = ">=5.1.1"
 python-dotenv = ">=1.2.1"
 
 [build-system]

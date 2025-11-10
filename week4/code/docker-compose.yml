@@ -1,0 +1,101 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: monitoring
+      POSTGRES_USER: monitoring
+      POSTGRES_PASSWORD: monitoring
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    image: python:3.12-slim
+    working_dir: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://monitoring:monitoring@postgres:5432/monitoring
+      LOGS_DIR: /app/logs
+    volumes:
+      - .:/app
+    command: >
+      bash -lc "pip install --no-cache-dir streamlit psycopg[binary]>=3.2 \
+      jaxn minsearch openai pydantic-ai python-frontmatter requests tiktoken \
+      && streamlit run monitoring/app.py --server.address 0.0.0.0 --server.port 8501"
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+
+  poller:
+    image: python:3.12-slim
+    working_dir: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://monitoring:monitoring@postgres:5432/monitoring
+      LOGS_DIR: /app/logs
+      PROCESSED_PREFIX: "_"
+    volumes:
+      - .:/app
+    command: >
+      bash -lc "pip install --no-cache-dir psycopg[binary]>=3.2 \
+      jaxn minsearch openai pydantic-ai python-frontmatter requests tiktoken \
+      && python -m monitoring.runner --watch"
+    restart: unless-stopped
+
+  faker:
+    image: python:3.12-slim
+    working_dir: /app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://monitoring:monitoring@postgres:5432/monitoring
+    volumes:
+      - .:/app
+    command: >
+      bash -lc "pip install --no-cache-dir psycopg[binary]>=3.2 \
+      && python -m monitoring.fake_data --count 400 --hours 48"
+    restart: "no"
+
+  grafana:
+    image: grafana/grafana:10.4.7
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_DEFAULT_THEME: light
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+    restart: unless-stopped
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.58
+    container_name: monitoring-jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16686:16686"   # Jaeger UI
+      - "4317:4317"     # OTLP gRPC
+      - "4318:4318"     # OTLP HTTP
+      - "14268:14268"   # Jaeger Thrift HTTP (optional)
+      - "14250:14250"   # Jaeger gRPC (optional)
+
+volumes:
+  pgdata:
+  grafana-data:

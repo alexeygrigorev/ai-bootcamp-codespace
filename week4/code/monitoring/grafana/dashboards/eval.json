@@ -1,0 +1,66 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "id": null,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Eval Checks Logged",
+      "id": 1,
+      "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {"refId": "A", "format": "table", "rawSql": "SELECT COUNT(*) AS total FROM eval_checks;"}
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Pass Rate by Check",
+      "id": 2,
+      "gridPos": {"x": 6, "y": 0, "w": 18, "h": 8},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT check_name, ROUND(100.0*SUM(CASE WHEN passed THEN 1 ELSE 0 END)/NULLIF(COUNT(*),0), 2) AS pass_pct, COUNT(*) AS total FROM eval_checks GROUP BY check_name ORDER BY pass_pct DESC;"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Checks Over Time",
+      "id": 3,
+      "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "time_series",
+          "rawSql": "SELECT $__timeGroupAlias(created_at, $__interval), COUNT(*) AS value FROM eval_checks WHERE $__timeFilter(created_at) GROUP BY 1 ORDER BY 1;"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Recent Checks (20)",
+      "id": 4,
+      "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8},
+      "datasource": {"type": "postgres", "uid": "PG"},
+      "targets": [
+        {
+          "refId": "A",
+          "format": "table",
+          "rawSql": "SELECT created_at, check_name, passed, score, details FROM eval_checks ORDER BY id DESC LIMIT 20;"
+        }
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": ["llm", "monitoring"],
+  "time": {"from": "now-24h", "to": "now"},
+  "title": "LLM Monitoring - Eval",
+  "uid": "llm-eval",
+  "version": 1
+}

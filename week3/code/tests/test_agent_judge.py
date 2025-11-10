@@ -84,7 +84,7 @@ async def test_agent_no_legal_domain():
         "agent made at least 3 tool calls",
         "article contains at least one section",
         "article contains at least one reference",
-        "no legal terms are present in search queries (except the word 'judge')"
+        "no legal terms are present in search queries. The word 'judge' is allowed"
     ]
 
     judge_feedback = await evaluate_agent_performance(
