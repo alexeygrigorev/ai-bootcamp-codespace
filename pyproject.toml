@@ -12,7 +12,7 @@ dependencies = [
     "pydantic-ai>=1.0.17",
     "python-frontmatter>=1.1.0",
     "requests>=2.32.5",
-    "toyaikit==0.0.5",
+    "toyaikit==0.0.8",
     "tqdm>=4.67.1",
     "youtube-transcript-api>=1.2.2",
 ]

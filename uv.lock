@@ -45,7 +45,7 @@ requires-dist = [
     { name = "pydantic-ai", specifier = ">=1.0.17" },
     { name = "python-frontmatter", specifier = ">=1.1.0" },
     { name = "requests", specifier = ">=2.32.5" },
-    { name = "toyaikit", specifier = "==0.0.5" },
+    { name = "toyaikit", specifier = "==0.0.8" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "youtube-transcript-api", specifier = ">=1.2.2" },
 ]
@@ -771,15 +771,15 @@ wheels = [
 
 [[package]]
 name = "genai-prices"
-version = "0.0.31"
+version = "0.0.38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3b/1d/e668a3c2045b1426485aedc95ea502b6a135f2a7ef4189d0b8b72138bcf5/genai_prices-0.0.31.tar.gz", hash = "sha256:cc98f0be0ae62beaf690bc8bf299a7cdb32671ebcaf23f8c5316bbe03e7740ed", size = 45772, upload-time = "2025-10-09T08:19:15.836Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ed/31/eacbfbdb8086869ecb4a1690936900e5e0f0ccd5fd9dc3f5278b27c792c0/genai_prices-0.0.38.tar.gz", hash = "sha256:27295d0db523cc5e98aea656a297b78c768cceeab03608a0dd5b029e095229ca", size = 47036, upload-time = "2025-11-10T11:46:40.066Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/39/59/8f4a65dc5a870e5b13f5da9ed87acb724b767108969c6be2c24afdf20a73/genai_prices-0.0.31-py3-none-any.whl", hash = "sha256:28707214a81122ac6cb74b1f3d255c8bccf0c11dba32366527e7d608fa49908a", size = 48368, upload-time = "2025-10-09T08:19:14.447Z" },
+    { url = "https://files.pythonhosted.org/packages/29/ae/93b67a2404482e75791278b60fe84a222da4116af080a49db5ec336e5495/genai_prices-0.0.38-py3-none-any.whl", hash = "sha256:c1ddf9040877116e23c4e1dfb390f8e9683b533c758e5d756494e1a26159ea4f", size = 49688, upload-time = "2025-11-10T11:46:36.988Z" },
 ]
 
 [[package]]
@@ -3196,16 +3196,17 @@ wheels = [
 
 [[package]]
 name = "toyaikit"
-version = "0.0.5"
+version = "0.0.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
+    { name = "genai-prices" },
     { name = "ipython" },
     { name = "mistune" },
     { name = "openai" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/47/d4/3d979b60a01aac10cfd2aff5f455a9a38927b788489ca5b1739497c1f582/toyaikit-0.0.5.tar.gz", hash = "sha256:ed6aafb529d0a1ed15efdced8d0ea0cbf0939185026023ac5b99dcbb5f6eee37", size = 154146, upload-time = "2025-10-09T03:16:31.376Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/20/3426ec6f4cbf0c71ec5dfb026509a1e1ea74a2dc02423f1c5bd28bf32952/toyaikit-0.0.8.tar.gz", hash = "sha256:6958ed1752cce465164203235c88868035d89b4be3daca2d4ef57d4400dae652", size = 202385, upload-time = "2025-11-11T10:27:55.139Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/d9/de89511002ae5ba1e8567bd0be3a8ed3bc103f1bbc4810eb92e29c710f19/toyaikit-0.0.5-py3-none-any.whl", hash = "sha256:9b5aa05309890d8efc1a56ec36f3fec151ca279c0c607d59a82d1225ac9b93eb", size = 19496, upload-time = "2025-10-09T03:16:29.839Z" },
+    { url = "https://files.pythonhosted.org/packages/7a/36/b8be2389915682141d1a700a16771c5bd1a7ece1d616d1e73c43833dc9e8/toyaikit-0.0.8-py3-none-any.whl", hash = "sha256:e4859fae21e874ed230f039e36d6535bbc0126c44fe48a37c885b2166f493224", size = 21418, upload-time = "2025-11-11T10:27:53.791Z" },
 ]
 
 [[package]]
