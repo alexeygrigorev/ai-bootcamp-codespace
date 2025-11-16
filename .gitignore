@@ -4,3 +4,6 @@ __pycache__/
 .venv
 .env
 .cache/
+
+# Large data files
+capstone_project/data/sec_downloads/
