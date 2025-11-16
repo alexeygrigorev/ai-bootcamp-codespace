@@ -6,7 +6,7 @@
 
 **Launch:**
 ```bash
-uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
+poetry run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
 ```
 
 **Key Features:**
@@ -54,10 +54,10 @@ uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth
 **Launch:**
 ```bash
 # Auto-detect latest results
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 
 # Or specify file
-uv run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
+poetry run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
 ```
 
 **Key Features:**
@@ -124,29 +124,29 @@ uv run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2
 ### Initial Setup
 ```bash
 # 1. Install dependencies
-uv sync --dev
+poetry install
 
 # 2. Curate ground truth
-uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
+poetry run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
 # Select good questions → export to evals/gt-curated.csv
 ```
 
 ### Run Evaluation
 ```bash
 # 3. Sample questions
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 25 \
     --input evals/gt-curated.csv \
     --output evals/gt-sample.csv
 
 # 4. Run evaluation
-uv run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
 ```
 
 ### Analyze Results
 ```bash
 # 5. Inspect results
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 # Review, filter, identify issues
 ```
 
@@ -154,10 +154,10 @@ uv run streamlit run evals/inspect_eval_results.py
 ```bash
 # 6. Fix issues in code/prompts
 # 7. Re-run evaluation with same sample
-uv run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
 
 # 8. Compare results in inspector
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 ```
 
 ---

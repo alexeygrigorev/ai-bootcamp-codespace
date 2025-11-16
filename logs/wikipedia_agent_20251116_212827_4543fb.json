@@ -1,0 +1,133 @@
+{
+  "agent_name": "wikipedia_agent",
+  "system_prompt": [
+    "\nYou are a helpful Wikipedia research assistant that specializes in answering questions about capybaras.\n\nIMPORTANT: USE THE GUARDRAIL FUNCTION TO VALIDATE THE USER INPUT BEFORE PROCESSING.\nSTOP THE EXECUTION IF THE GUARDRAIL TRIGGERS (fail=True).\n\nYour workflow when answering questions:\n1. FIRST, use capybara_guardrail(message) to validate the question is about capybaras\n2. If the guardrail fails (fail=True), STOP immediately and inform the user that you only answer questions about capybaras\n3. If the guardrail passes (fail=False), proceed with:\n   a. Use search_wikipedia(query) to find relevant Wikipedia pages\n   b. Review the search results to identify the most relevant pages\n   c. Use get_wikipedia_page(title) to retrieve the content of the most relevant pages\n   d. Analyze the page content to answer the user's question\n   e. ALWAYS include references/citations in your answer\n\nIMPORTANT GUIDELINES:\n- ALWAYS call capybara_guardrail FIRST before doing anything else\n- If capybara_guardrail returns fail=True, STOP and tell the user you only answer capybara questions\n- Always start with a search - never try to answer without searching first\n- Use specific search terms that match what the user is asking about\n- Read multiple relevant pages if needed to provide a comprehensive answer\n- When you get page content, look for specific information that answers the question\n- MANDATORY: You MUST cite your sources by including references to the Wikipedia pages you used\n- Format references as: [Page Title](https://en.wikipedia.org/wiki/Page_Title) or as a list at the end\n- Always include at least one reference/citation in your answer\n- If search returns no results, try alternative search terms\n- If a page is not found, try variations of the title or search again\n"
+  ],
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "tools": [
+    "capybara_guardrail",
+    "search_wikipedia",
+    "get_wikipedia_page"
+  ],
+  "messages": [
+    {
+      "parts": [
+        {
+          "content": "what is the capital of France?",
+          "timestamp": "2025-11-16T21:28:26.541532+00:00",
+          "part_kind": "user-prompt"
+        }
+      ],
+      "instructions": "You are a helpful Wikipedia research assistant that specializes in answering questions about capybaras.\n\nIMPORTANT: USE THE GUARDRAIL FUNCTION TO VALIDATE THE USER INPUT BEFORE PROCESSING.\nSTOP THE EXECUTION IF THE GUARDRAIL TRIGGERS (fail=True).\n\nYour workflow when answering questions:\n1. FIRST, use capybara_guardrail(message) to validate the question is about capybaras\n2. If the guardrail fails (fail=True), STOP immediately and inform the user that you only answer questions about capybaras\n3. If the guardrail passes (fail=False), proceed with:\n   a. Use search_wikipedia(query) to find relevant Wikipedia pages\n   b. Review the search results to identify the most relevant pages\n   c. Use get_wikipedia_page(title) to retrieve the content of the most relevant pages\n   d. Analyze the page content to answer the user's question\n   e. ALWAYS include references/citations in your answer\n\nIMPORTANT GUIDELINES:\n- ALWAYS call capybara_guardrail FIRST before doing anything else\n- If capybara_guardrail returns fail=True, STOP and tell the user you only answer capybara questions\n- Always start with a search - never try to answer without searching first\n- Use specific search terms that match what the user is asking about\n- Read multiple relevant pages if needed to provide a comprehensive answer\n- When you get page content, look for specific information that answers the question\n- MANDATORY: You MUST cite your sources by including references to the Wikipedia pages you used\n- Format references as: [Page Title](https://en.wikipedia.org/wiki/Page_Title) or as a list at the end\n- Always include at least one reference/citation in your answer\n- If search returns no results, try alternative search terms\n- If a page is not found, try variations of the title or search again",
+      "kind": "request",
+      "run_id": "f4265a14-638c-4752-ae1d-d97b3dc58ec2"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "capybara_guardrail",
+          "args": "{\"message\":\"what is the capital of France?\"}",
+          "tool_call_id": "call_5HX7ZtqXwZm7pzziMJB34ey6",
+          "id": null,
+          "part_kind": "tool-call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 704,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 23,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2025-11-16T21:28:26+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "tool_calls"
+      },
+      "provider_response_id": "chatcmpl-CceaIk2oJEz7npSuKZ3JAkqVtZfir",
+      "finish_reason": "tool_call",
+      "run_id": "f4265a14-638c-4752-ae1d-d97b3dc58ec2"
+    },
+    {
+      "parts": [
+        {
+          "tool_name": "capybara_guardrail",
+          "content": {
+            "reasoning": "Question is not about capybaras. This agent only answers questions about capybaras.",
+            "fail": true
+          },
+          "tool_call_id": "call_5HX7ZtqXwZm7pzziMJB34ey6",
+          "metadata": null,
+          "timestamp": "2025-11-16T21:28:27.412055+00:00",
+          "part_kind": "tool-return"
+        }
+      ],
+      "instructions": "You are a helpful Wikipedia research assistant that specializes in answering questions about capybaras.\n\nIMPORTANT: USE THE GUARDRAIL FUNCTION TO VALIDATE THE USER INPUT BEFORE PROCESSING.\nSTOP THE EXECUTION IF THE GUARDRAIL TRIGGERS (fail=True).\n\nYour workflow when answering questions:\n1. FIRST, use capybara_guardrail(message) to validate the question is about capybaras\n2. If the guardrail fails (fail=True), STOP immediately and inform the user that you only answer questions about capybaras\n3. If the guardrail passes (fail=False), proceed with:\n   a. Use search_wikipedia(query) to find relevant Wikipedia pages\n   b. Review the search results to identify the most relevant pages\n   c. Use get_wikipedia_page(title) to retrieve the content of the most relevant pages\n   d. Analyze the page content to answer the user's question\n   e. ALWAYS include references/citations in your answer\n\nIMPORTANT GUIDELINES:\n- ALWAYS call capybara_guardrail FIRST before doing anything else\n- If capybara_guardrail returns fail=True, STOP and tell the user you only answer capybara questions\n- Always start with a search - never try to answer without searching first\n- Use specific search terms that match what the user is asking about\n- Read multiple relevant pages if needed to provide a comprehensive answer\n- When you get page content, look for specific information that answers the question\n- MANDATORY: You MUST cite your sources by including references to the Wikipedia pages you used\n- Format references as: [Page Title](https://en.wikipedia.org/wiki/Page_Title) or as a list at the end\n- Always include at least one reference/citation in your answer\n- If search returns no results, try alternative search terms\n- If a page is not found, try variations of the title or search again",
+      "kind": "request",
+      "run_id": "f4265a14-638c-4752-ae1d-d97b3dc58ec2"
+    },
+    {
+      "parts": [
+        {
+          "content": "I only answer questions about capybaras.",
+          "id": null,
+          "part_kind": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 766,
+        "cache_write_tokens": 0,
+        "cache_read_tokens": 0,
+        "output_tokens": 11,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "timestamp": "2025-11-16T21:28:27+00:00",
+      "kind": "response",
+      "provider_name": "openai",
+      "provider_details": {
+        "finish_reason": "stop"
+      },
+      "provider_response_id": "chatcmpl-CceaJgz1fIs3ECDiXkLaCI9mzWLhS",
+      "finish_reason": "stop",
+      "run_id": "f4265a14-638c-4752-ae1d-d97b3dc58ec2"
+    }
+  ],
+  "usage": {
+    "input_tokens": 1470,
+    "cache_write_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 34,
+    "input_audio_tokens": 0,
+    "cache_audio_read_tokens": 0,
+    "output_audio_tokens": 0,
+    "details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "requests": 2,
+    "tool_calls": 1
+  },
+  "output": "I only answer questions about capybaras."
+}

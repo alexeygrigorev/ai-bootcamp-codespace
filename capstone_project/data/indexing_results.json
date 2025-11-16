@@ -1,0 +1,108 @@
+[
+  {
+    "company": "UnitedHealth Group Inc.",
+    "cik": "0000731766",
+    "filings_found": 61,
+    "filings_indexed": 40,
+    "chunks_indexed": 8947,
+    "errors": []
+  },
+  {
+    "company": "Target Corporation",
+    "cik": "0000027419",
+    "filings_found": 151,
+    "filings_indexed": 5,
+    "chunks_indexed": 79,
+    "errors": []
+  },
+  {
+    "company": "Capital One Financial Corp.",
+    "cik": "0000927628",
+    "filings_found": 233,
+    "filings_indexed": 37,
+    "chunks_indexed": 21967,
+    "errors": [
+      "Download failed: cof-20201207.htm"
+    ]
+  },
+  {
+    "company": "Equifax Inc.",
+    "cik": "0000033185",
+    "filings_found": 121,
+    "filings_indexed": 36,
+    "chunks_indexed": 1786,
+    "errors": []
+  },
+  {
+    "company": "Marriott International Inc.",
+    "cik": "0001048286",
+    "filings_found": 142,
+    "filings_indexed": 50,
+    "chunks_indexed": 4750,
+    "errors": []
+  },
+  {
+    "company": "Home Depot, Inc.",
+    "cik": "0000354950",
+    "filings_found": 133,
+    "filings_indexed": 0,
+    "chunks_indexed": 0,
+    "errors": []
+  },
+  {
+    "company": "MGM Resorts International",
+    "cik": "0000789570",
+    "filings_found": 46,
+    "filings_indexed": 28,
+    "chunks_indexed": 11491,
+    "errors": []
+  },
+  {
+    "company": "SolarWinds Corporation",
+    "cik": "0001739942",
+    "filings_found": 81,
+    "filings_indexed": 37,
+    "chunks_indexed": 11406,
+    "errors": []
+  },
+  {
+    "company": "T-Mobile US, Inc.",
+    "cik": "0001283699",
+    "filings_found": 119,
+    "filings_indexed": 95,
+    "chunks_indexed": 30647,
+    "errors": []
+  },
+  {
+    "company": "Uber Technologies, Inc.",
+    "cik": "0001543151",
+    "filings_found": 121,
+    "filings_indexed": 0,
+    "chunks_indexed": 0,
+    "errors": []
+  },
+  {
+    "company": "Sony Group Corp.",
+    "cik": "0000313838",
+    "filings_found": 0,
+    "filings_indexed": 0,
+    "chunks_indexed": 0,
+    "error": "No relevant filings found"
+  },
+  {
+    "company": "First American Financial Corp.",
+    "cik": "0001472787",
+    "filings_found": 84,
+    "filings_indexed": 23,
+    "chunks_indexed": 12062,
+    "errors": []
+  },
+  {
+    "company": "Altaba Inc. (formerly Yahoo! Inc.)",
+    "cik": "0001011006",
+    "filings_found": 136,
+    "filings_indexed": 59,
+    "chunks_indexed": 4090,
+    "errors": []
+  }
+]

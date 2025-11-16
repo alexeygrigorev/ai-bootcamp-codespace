@@ -1,0 +1,34 @@
+[
+  {
+    "company": "Home Depot, Inc.",
+    "cik": "0000354950",
+    "filings_found": 98,
+    "filings_indexed": 0,
+    "chunks_indexed": 0,
+    "error": "No filings found in target years [2014, 2015]"
+  },
+  {
+    "company": "Sony Group Corp.",
+    "cik": "0000313838",
+    "filings_found": 89,
+    "filings_indexed": 89,
+    "chunks_indexed": 4036,
+    "errors": []
+  },
+  {
+    "company": "Equifax Inc.",
+    "cik": "0000033185",
+    "filings_found": 30,
+    "filings_indexed": 30,
+    "chunks_indexed": 954,
+    "errors": []
+  },
+  {
+    "company": "First American Financial Corp.",
+    "cik": "0001472787",
+    "filings_found": 17,
+    "filings_indexed": 17,
+    "chunks_indexed": 3764,
+    "errors": []
+  }
+]

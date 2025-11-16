@@ -5,7 +5,7 @@ Interactive tool to view, edit, and curate ground truth questions.
 Allows manual selection of "good" questions into a separate file.
 
 Usage:
-    uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
+    poetry run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
 """
 
 import streamlit as st

@@ -1,0 +1,140 @@
+Traceback (most recent call last):
+  File "/Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/index_ground_truth_filings.py", line 168, in index_filing
+    indexed_count = index_sec_chunks(es, chunks, cik, form_type, filing_date, accession_number)
+TypeError: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+Traceback (most recent call last):
+  File "/Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/index_ground_truth_filings.py", line 168, in index_filing
+    indexed_count = index_sec_chunks(es, chunks, cik, form_type, filing_date, accession_number)
+TypeError: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+Traceback (most recent call last):
+  File "/Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/index_ground_truth_filings.py", line 168, in index_filing
+    indexed_count = index_sec_chunks(es, chunks, cik, form_type, filing_date, accession_number)
+TypeError: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+Traceback (most recent call last):
+  File "/Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/index_ground_truth_filings.py", line 168, in index_filing
+    indexed_count = index_sec_chunks(es, chunks, cik, form_type, filing_date, accession_number)
+TypeError: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+================================================================================
+Ground Truth SEC Filings Indexer
+================================================================================
+
+Loading ground truth filings from: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/eval/ground_truth_2024_2025_sec_filings.csv
+⚠️  Skipping Live Nation Entertainment, Inc.: Missing CIK or accession number
+⚠️  Skipping Roku, Inc.: Missing CIK or accession number
+⚠️  Skipping 23andMe Holding Co.: Missing CIK or accession number
+⚠️  Skipping 23andMe Holding Co.: Missing CIK or accession number
+⚠️  Skipping Henry Schein, Inc.: Missing CIK or accession number
+⚠️  Skipping The Clorox Company: Missing CIK or accession number
+⚠️  Skipping The Clorox Company: Missing CIK or accession number
+⚠️  Skipping Santander Holdings USA, Inc.: Missing CIK or accession number
+⚠️  Skipping National Public Data / Jerico Pictures, Inc.: Missing CIK or accession number
+✓ Loaded 4 filings from CSV
+
+Checking Elasticsearch connection...
+✓ Elasticsearch connected - 134,484 documents currently indexed
+
+Starting indexing process...
+
+
+[1/4]
+
+================================================================================
+Processing: AT&T Inc. - 8-K (7/12/24)
+Accession: 0000732717-24-000046
+================================================================================
+Fetching recent filings to find document name...
+Fetching filings for CIK 0000732717...
+Found 441 filings in the last 2 years.
+Primary document: t-20240506.htm
+Downloading filing...
+Downloaded: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/t-20240506.htm
+✓ Downloaded to: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/t-20240506.htm
+Parsing filing...
+✓ Parsed filing: 2 sections
+Chunking documents...
+✓ Generated 69 chunks
+Indexing chunks to Elasticsearch...
+❌ Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+
+[2/4]
+
+================================================================================
+Processing: Advance Auto Parts, Inc. - 8-K (6/14/24)
+Accession: 0001158449-24-000162
+================================================================================
+Fetching recent filings to find document name...
+Fetching filings for CIK 0001158449...
+Found 268 filings in the last 2 years.
+Primary document: aap-20240523.htm
+Downloading filing...
+Downloaded: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/aap-20240523.htm
+✓ Downloaded to: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/aap-20240523.htm
+Parsing filing...
+✓ Parsed filing: 2 sections
+Chunking documents...
+✓ Generated 26 chunks
+Indexing chunks to Elasticsearch...
+❌ Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+
+[3/4]
+
+================================================================================
+Processing: AutoNation, Inc. - 8-K (6/24/24)
+Accession: 0000350698-24-000078
+================================================================================
+Fetching recent filings to find document name...
+Fetching filings for CIK 0000350698...
+Found 134 filings in the last 2 years.
+Primary document: an-20240619.htm
+Downloading filing...
+Downloaded: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/an-20240619.htm
+✓ Downloaded to: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/an-20240619.htm
+Parsing filing...
+✓ Parsed filing: 2 sections
+Chunking documents...
+✓ Generated 24 chunks
+Indexing chunks to Elasticsearch...
+❌ Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+
+[4/4]
+
+================================================================================
+Processing: AutoNation, Inc. - 8-K (7/15/24)
+Accession: 0000350698-24-000085
+================================================================================
+Fetching recent filings to find document name...
+Fetching filings for CIK 0000350698...
+Found 134 filings in the last 2 years.
+Primary document: an-20240715.htm
+Downloading filing...
+Downloaded: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/an-20240715.htm
+✓ Downloaded to: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/data/sec_downloads/an-20240715.htm
+Parsing filing...
+✓ Parsed filing: 2 sections
+Chunking documents...
+✓ Generated 40 chunks
+Indexing chunks to Elasticsearch...
+❌ Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+
+================================================================================
+INDEXING SUMMARY
+================================================================================
+Total filings processed: 4
+Successful: 0
+Failed: 4
+Total chunks indexed: 0
+New documents in Elasticsearch: 0
+Total time: 0.2 minutes
+
+✓ Results saved to: /Users/ddegeest/my-code-projects/ai-bootcamp-codespace/capstone_project/eval/ground_truth_indexing_results.json
+================================================================================
+
+Failed filings:
+  ✗ AT&T Inc. - 8-K (7/12/24)
+      Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+  ✗ Advance Auto Parts, Inc. - 8-K (6/14/24)
+      Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+  ✗ AutoNation, Inc. - 8-K (6/24/24)
+      Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given
+  ✗ AutoNation, Inc. - 8-K (7/15/24)
+      Error: index_sec_chunks() takes from 1 to 4 positional arguments but 6 were given

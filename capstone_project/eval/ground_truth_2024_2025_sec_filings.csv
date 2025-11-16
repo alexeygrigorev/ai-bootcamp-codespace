@@ -1,0 +1,14 @@
+Q#,Company,CIK,Ticker,Form Type,Filing Date,Accession Number,Key Item,Incident Date
+11,AT&T Inc.,0000732717,T,8-K,7/12/24,0000732717-24-000046,Item 1.05 Material Cybersecurity Incidents,"April 14-25, 2024 (exfiltration period)"
+12,"Live Nation Entertainment, Inc.",0001335258,LYV,8-K,5/31/24,Referenced in reports,Item 8.01 Other Events (NOT Item 1.05),"April 2 - May 18, 2024"
+13,"Advance Auto Parts, Inc.",0001158449,AAP,8-K,6/14/24,0001158449-24-000162,Item 8.01 Other Events (NOT Item 1.05),"April 14 - May 24, 2024"
+14,"AutoNation, Inc.",0000350698,AN,8-K,6/24/24,0000350698-24-000078,Item 8.01 Other Events,"June 19, 2024 (CDK attack)"
+14,"AutoNation, Inc.",0000350698,AN,8-K,7/15/24,0000350698-24-000085,Item 8.01 Other Events - Financial Impact Update,"June 19, 2024 (CDK attack)"
+15,"Roku, Inc.",0001428439,ROKU,Multiple 8-K filings referenced,2024 filings,Referenced in reports,Likely Item 8.01 or press releases,"March 2024 (first incident), additional accounts April 2024"
+16,23andMe Holding Co.,0001804591,ME (delisted),8-K,10/10/23,Referenced,Item 7.01 Regulation FD Disclosure,April - September 2023 (credential stuffing)
+16,23andMe Holding Co.,0001804591,ME (delisted),8-K/A,11/30/23,Referenced,Amendment updating scope,April - September 2023 (credential stuffing)
+17,"Henry Schein, Inc.",0001000228,HSIC,8-K,10/15/23,Referenced,"Press release, likely Item 8.01 or 7.01","October 14, 2023 (first), November 27, 2023 (re-encryption)"
+18,The Clorox Company,0000021076,CLX,8-K,9/18/23,Referenced,Item 8.01 Other Events,Aug-23
+18,The Clorox Company,0000021076,CLX,10-Q,"Q3 FY2024 (March 31, 2024)",Referenced,Ongoing costs disclosure - $57M year-to-date,Aug-23
+19,"Santander Holdings USA, Inc.",0001193593,Private (parent: SAN),Data breach notifications to state AGs,Jun-24,N/A (private company in US),Maine AG notification,Late April - Early May 2024
+20,"National Public Data / Jerico Pictures, Inc.",N/A - Private company,Private,None - Private company,N/A,N/A,N/A,December 2023 - August 2024

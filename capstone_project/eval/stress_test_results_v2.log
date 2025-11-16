@@ -1,0 +1,155 @@
+================================================================================
+SEC Cybersecurity Agent - Stress Test Suite
+================================================================================
+
+Loaded 10 questions from stress_test_questions.csv
+
+Checking Elasticsearch connection...
+✓ Elasticsearch connected - 134,484 documents indexed
+
+Starting stress tests...
+
+
+[1/10]
+
+================================================================================
+Question 1: Extract Key Facts
+================================================================================
+Question: What was the primary attack vector used in the Change Healthcare ransomware incident, and how many individuals were affected? Extract any specific technical details about the vulnerability exploited.
+Difficulty: Basic
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 19.4 seconds
+
+[2/10]
+
+================================================================================
+Question 2: Non-Technical Summary
+================================================================================
+Question: Summarize the Capital One 2019 breach in terms that a Chief Financial Officer would understand, including the basic timeline, what types of sensitive data were exposed, and the financial impact.
+Difficulty: Basic
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 7.4 seconds
+
+[3/10]
+
+================================================================================
+Question 3: Supply Chain Risk Assessment
+================================================================================
+Question: If Home Depot is a Tier 2 supplier in our logistics network, what should we be concerned about regarding their 2014 data breach? What are the specific risks to our organization?
+Difficulty: Basic
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 15.0 seconds
+
+[4/10]
+
+================================================================================
+Question 4: Multiple Incidents - Same Company
+================================================================================
+Question: T-Mobile has experienced multiple breaches between 2021-2023. Extract the key facts about each incident separately, then provide a comprehensive non-technical summary, and finally assess whether T-Mobile should be in our Tier 1 or Tier 2 supply chain.
+Difficulty: Moderate
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 19.3 seconds
+
+[5/10]
+
+================================================================================
+Question 5: Nation-State Attack Analysis
+================================================================================
+Question: What were the key facts about the Sony Pictures 2014 breach attributed to North Korea? How would you explain this to a non-technical executive, and would you recommend different risk mitigation strategies compared to a financially-motivated breach?
+Difficulty: Moderate
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 15.6 seconds
+
+[6/10]
+
+================================================================================
+Question 6: Regulatory Failure Incidents
+================================================================================
+Question: Yahoo/Altaba was fined by the SEC for failing to disclose a data breach. Extract the facts about: (1) the original breach, (2) the disclosure failure, and (3) the regulatory consequences. Explain to a CFO why this matters beyond the immediate data compromise.
+Difficulty: Moderate
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 15.0 seconds
+
+[7/10]
+
+================================================================================
+Question 7: Supply Chain Attack Complexity
+================================================================================
+Question: The SolarWinds SUNBURST attack in 2020 was a supply chain attack affecting thousands of organizations. Extract the key technical facts, summarize it for a CTO, and provide a supply chain risk assessment framework for evaluating whether SolarWinds should remain as a Tier 1 vendor.
+Difficulty: Complex
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 2.2 seconds
+
+[8/10]
+
+================================================================================
+Question 8: Malicious Insider / Cover-up
+================================================================================
+Question: Uber's 2016 data breach involved both a security incident and subsequent concealment/cover-up. Extract the complete facts including the initial breach, the cover-up, and the consequences. Explain to a Board of Directors why this matters for corporate governance, and recommend Tier 1 vs. Tier 2 status.
+Difficulty: Complex
+Companies: s 2016 data breach involved both a security incident and subsequent concealment/cover-up. Extract the complete facts including the initial breach, the cover-up, and the consequences. Explain to a Board of Directors why this matters for corporate governance, and recommend Tier 1 vs. Tier 2 status.
+
+Running agent...
+✓ Completed in 11.0 seconds
+
+[9/10]
+
+================================================================================
+Question 9: Ransomware with Operational Impact
+================================================================================
+Question: MGM Resorts experienced a ransomware attack in 2023 that affected business operations (digital room keys, slot machines) for 9 days. Extract the attack facts, explain the business continuity implications to an Operations VP, and assess Tier 1 vs. Tier 2 supplier risk, considering operational criticality.
+Difficulty: Complex
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 22.4 seconds
+
+[10/10]
+
+================================================================================
+Question 10: Comprehensive Vendor Evaluation
+================================================================================
+Question: Compare and contrast Equifax (2017, unpatched vulnerability) and First American Financial (2019, web application vulnerability) for potential inclusion as service vendors. Extract all key facts for both, provide executive summaries for each, and provide detailed Tier 1/Tier 2 recommendations with justification, including any conditions or remediation requirements.
+Difficulty: Complex
+Companies: Multiple/Generic
+
+Running agent...
+✓ Completed in 15.3 seconds
+
+================================================================================
+STRESS TEST SUMMARY
+================================================================================
+Total questions: 10
+Successful: 10
+Failed: 0
+Total time: 2.7 minutes
+Average time per question: 14.3 seconds
+
+✓ Results saved to: stress_test_results.json
+================================================================================
+
+Per-question status:
+  ✓ Question 1: Extract Key Facts (19.4s)
+  ✓ Question 2: Non-Technical Summary (7.4s)
+  ✓ Question 3: Supply Chain Risk Assessment (15.0s)
+  ✓ Question 4: Multiple Incidents - Same Company (19.3s)
+  ✓ Question 5: Nation-State Attack Analysis (15.6s)
+  ✓ Question 6: Regulatory Failure Incidents (15.0s)
+  ✓ Question 7: Supply Chain Attack Complexity (2.2s)
+  ✓ Question 8: Malicious Insider / Cover-up (11.0s)
+  ✓ Question 9: Ransomware with Operational Impact (22.4s)
+  ✓ Question 10: Comprehensive Vendor Evaluation (15.3s)

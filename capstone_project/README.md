@@ -1,119 +1,85 @@
-# SEC EDGAR API Client
+# SEC Cybersecurity Disclosure Agent
 
-A Python client for accessing SEC EDGAR filings data via the SEC's public API.
+An AI agent that extracts and analyzes cybersecurity disclosures from SEC filings using Pydantic AI.
 
-## Files
+## Project Structure
 
-- `sec_edgar_client.py` - Main client library for accessing SEC EDGAR API
-- `sec_edgar_example.ipynb` - Jupyter notebook with examples and usage
-- `.env.example` - Template for environment configuration
+```
+capstone_project/
+├── src/                    # Agent mechanisms and application code
+│   ├── sec_edgar_client.py          # SEC EDGAR API client
+│   ├── sec_xml_parser.py            # SEC filing parser and chunker
+│   ├── sec_search_tools.py          # Elasticsearch search tools
+│   ├── company_cik_lookup.py        # Company name to CIK mapping
+│   ├── subsidiary_cik_mapping.py    # Subsidiary to parent company mapping
+│   ├── run_stress_tests.py          # Stress test runner
+│   ├── sec_cybersecurity_agent.ipynb # Main agent notebook
+│   └── ...
+│
+├── eval/                   # Evaluation and testing
+│   ├── tests/                       # Unit tests for agent responses
+│   ├── stress_test_questions.csv    # Test questions
+│   └── stress_test_results.json    # Test results
+│
+├── documentation/          # Documentation and guides
+│   ├── USE_THE_AGENT.md            # How to use the agent
+│   ├── CIK_LOOKUP_FIX.md            # CIK lookup improvements
+│   ├── SUBSIDIARY_MAPPING_GUIDE.md  # Subsidiary mapping guide
+│   └── ...
+│
+└── data/                   # SEC data download and indexing
+    ├── sec_downloads/               # Downloaded SEC filings
+    ├── index_cybersecurity_companies.py
+    └── ...
+```
 
-## Setup
+## Quick Start
 
-### 1. Configure User-Agent
+### Prerequisites
 
-Create a `.env` file in the project root (or in `capstone_project/`) with your SEC User-Agent:
+1. **Elasticsearch**: Running via Docker
+   ```bash
+   ./src/setup_elasticsearch.sh
+   ```
+
+2. **Environment Variables**: Create `.env` file with:
+   ```
+   SEC_USER_AGENT=YourName YourEmail@example.com
+   OPENAI_API_KEY=your-key-here
+   ```
+
+3. **Dependencies**: Install via Poetry
+   ```bash
+   poetry install
+   ```
+
+### Using the Agent
+
+See `documentation/USE_THE_AGENT.md` for detailed instructions.
+
+### Running Tests
 
 ```bash
-# In project root or capstone_project folder
-echo 'SEC_USER_AGENT="Your Name (your.email@example.com)"' > .env
+cd capstone_project
+poetry run pytest eval/tests/ -v
 ```
 
-Or manually edit `.env`:
-```
-SEC_USER_AGENT="Your Name (your.email@example.com)"
-```
+### Indexing SEC Filings
 
-The client will automatically load this from your `.env` file!
+See `documentation/INDEXING_GUIDE.md` for instructions on downloading and indexing SEC filings.
 
-## Features
+## Key Features
 
-- Fetch all SEC filings for a given CIK (Central Index Key) number
-- Filter filings by date range (default: last 3 years)
-- Get company information (name, ticker, SIC code, etc.)
-- Download individual filing documents
-- Automatic rate limiting and respectful API usage
+- **Exact CIK Lookup**: Maps company names, ticker symbols, and historical names to correct CIKs
+- **Subsidiary Mapping**: Automatically maps subsidiaries to parent company SEC filings
+- **SEC-Only Data**: Strictly uses SEC filings as data source (no general knowledge)
+- **Comprehensive Citations**: All information cited with specific SEC form types and dates
 
-## Usage
+## Documentation
 
-### Basic Example
-
-```python
-from sec_edgar_client import SECEdgarClient
-
-# Initialize the client - will automatically read from .env file
-# Or pass user_agent parameter to override
-client = SECEdgarClient()
-
-# Fetch filings for Apple Inc. (CIK: 320193)
-filings = client.fetch_filings("320193", years=3)
-
-for filing in filings[:5]:
-    print(f"{filing['filing_date']}: {filing['form']}")
-```
-
-### Get Company Information
-
-```python
-company_info = client.get_company_info("320193")
-print(company_info)
-# Output: {'name': 'Apple Inc.', 'tickers': ['AAPL'], ...}
-```
-
-### Download a Filing Document
-
-```python
-# Assuming you have a filing with accession_number and primary_document
-doc_path = client.download_filing_document(
-    accession_number="0000320193-24-000001",
-    primary_document="aapl-10k_20220930.htm",
-    cik="320193",
-    output_dir="downloads"
-)
-```
-
-## Important Notes
-
-1. **User-Agent Header**: The SEC requires a valid User-Agent header. Set it in your `.env` file as `SEC_USER_AGENT`, or pass it as a parameter to `SECEdgarClient()`.
-
-2. **Rate Limits**: The SEC tracks API usage. Be respectful of their systems:
-   - Don't make excessive requests
-   - Use sleep delays when fetching historical data
-   - The client includes automatic rate limiting
-
-3. **Timeout**: All requests include a 30-second timeout to prevent hanging
-
-## Documentation References
-
-- [SEC EDGAR API Documentation](https://www.sec.gov/edgar/sec-api-documentation)
-- [SEC EDGAR Search Tools](https://www.sec.gov/search-filings/edgar-application-programming-interfaces)
-- [SEC API Token Management](https://www.sec.gov/submit-filings/filer-support-resources/how-do-i-guides/create-manage-filer-user-api-tokens)
-- [SEC EDGAR Data Site](https://data.sec.gov/)
-
-## API Endpoints Used
-
-- **Submissions API**: `https://data.sec.gov/submissions/CIK{10-digit-cik}.json`
-- **Filing Documents**: `https://data.sec.gov/files/edgar/data/{cik}/{accession-number}/{document-name}`
-
-## Example CIKs
-
-- Apple Inc.: 320193
-- Microsoft Corp: 789019
-- Amazon.com Inc: 1018724
-- Alphabet Inc: 1652044
-- Meta Platforms Inc: 1326801
-
-## Running the Examples
-
-1. Set up your `.env` file with `SEC_USER_AGENT` (see Setup section above)
-2. Open `sec_edgar_example.ipynb` in Jupyter
-3. Run the cells to see examples of fetching and analyzing SEC filings
-
-## Running as a Script
-
-```bash
-python sec_edgar_client.py
-```
-
-This will run a demonstration fetching Apple Inc.'s filings for the last 3 years.
-
+All documentation is in the `documentation/` folder:
+- `USE_THE_AGENT.md` - How to use the agent
+- `CIK_LOOKUP_FIX.md` - CIK lookup improvements
+- `SUBSIDIARY_MAPPING_GUIDE.md` - Subsidiary mapping system
+- `ENTITY_RESOLUTION_IMPROVEMENTS.md` - Entity resolution enhancements
+- `INDEXING_GUIDE.md` - SEC filing indexing guide

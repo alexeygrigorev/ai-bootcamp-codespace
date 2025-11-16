@@ -77,22 +77,22 @@ If you need to create a new ground truth dataset from documentation:
 
 ```bash
 # Generate with default settings (gpt-4o-mini, 6 workers)
-uv run python -m evals.generate_data
+poetry run python -m evals.generate_data
 
 # Use a different model
-uv run python -m evals.generate_data --model gpt-4o
+poetry run python -m evals.generate_data --model gpt-4o
 
 # Customize output file
-uv run python -m evals.generate_data --output evals/ground_truth_custom.csv
+poetry run python -m evals.generate_data --output evals/ground_truth_custom.csv
 
 # Adjust content filtering and generation parameters
-uv run python -m evals.generate_data \
+poetry run python -m evals.generate_data \
     --min-content-length 500 \
     --chars-per-question 800 \
     --max-workers 10
 
 # Exclude specific keywords from document titles
-uv run python -m evals.generate_data \
+poetry run python -m evals.generate_data \
     --exclude unpublished legacy test draft
 ```
 
@@ -117,26 +117,26 @@ This will:
 
 ```bash
 # Sample 25 questions with random_state=1 for reproducibility
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 25 \
     --random-state 1 \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-sample.csv
 
 # Sample with specific extra indices
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 25 \
     --extra-indices 150 200 \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-sample.csv
 
 # Use all questions (no sampling)
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-all.csv
 
 # Save to specific file with custom size
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 50 \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-sample-50.csv
@@ -148,13 +148,13 @@ This creates a CSV file that you can use for reproducible evaluations.
 
 ```bash
 # Run with sampled dataset
-uv run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
 
 # Run with full dataset
-uv run python -m evals.eval_orchestrator --csv evals/ground_truth_evidently.csv
+poetry run python -m evals.eval_orchestrator --csv evals/ground_truth_evidently.csv
 
 # Custom configuration
-uv run python -m evals.eval_orchestrator \
+poetry run python -m evals.eval_orchestrator \
     --csv evals/gt-sample.csv \
     --agent-model gpt-4o-mini \
     --judge-model gpt-5-nano \
@@ -167,13 +167,13 @@ uv run python -m evals.eval_orchestrator \
 
 ```bash
 # Use sampled dataset
-uv run python -m evals.eval_agent_run --csv evals/gt-sample.csv
+poetry run python -m evals.eval_agent_run --csv evals/gt-sample.csv
 
 # Or use full dataset
-uv run python -m evals.eval_agent_run --csv evals/ground_truth_evidently.csv
+poetry run python -m evals.eval_agent_run --csv evals/ground_truth_evidently.csv
 
 # With custom settings
-uv run python -m evals.eval_agent_run \
+poetry run python -m evals.eval_agent_run \
     --csv evals/gt-sample.csv \
     --model gpt-4o-mini \
     --concurrency 10
@@ -188,7 +188,7 @@ This will:
 #### Step 2: Run Judge Evaluation
 
 ```bash
-uv run python -m evals.eval_agent_judge reports/eval-run-<timestamp>.bin
+poetry run python -m evals.eval_agent_judge reports/eval-run-<timestamp>.bin
 ```
 
 This will:
@@ -338,24 +338,24 @@ Costs are tracked separately for:
 
 ```bash
 # 1. Generate ground truth from documentation
-uv run python -m evals.generate_data --output evals/ground_truth_evidently.csv
+poetry run python -m evals.generate_data --output evals/ground_truth_evidently.csv
 
 # 2. Inspect and curate ground truth
-uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
+poetry run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
 # - View source lines for each question
 # - Select good questions and export to evals/gt-curated.csv
 
 # 3. Create evaluation sample
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 25 \
     --input evals/gt-curated.csv \
     --output evals/gt-sample.csv
 
 # 3. Run evaluation
-uv run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-sample.csv
 
 # 4. Inspect results
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 # Review results, identify issues, filter by criteria
 ```
 
@@ -363,43 +363,43 @@ uv run streamlit run evals/inspect_eval_results.py
 
 ```bash
 # Step 1: Create sample
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 5 \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-test.csv
 
 # Step 2: Run evaluation
-uv run python -m evals.eval_orchestrator --csv evals/gt-test.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-test.csv
 
 # Step 3: Inspect results
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 ```
 
 ### Full Evaluation
 
 ```bash
 # Use full dataset directly
-uv run python -m evals.eval_orchestrator --csv evals/ground_truth_evidently.csv
+poetry run python -m evals.eval_orchestrator --csv evals/ground_truth_evidently.csv
 ```
 
 ### Reproducible Evaluation
 
 ```bash
 # Create reproducible sample with fixed random seed
-uv run python -m evals.sample_ground_truth \
+poetry run python -m evals.sample_ground_truth \
     --sample-size 25 \
     --random-state 42 \
     --input evals/ground_truth_evidently.csv \
     --output evals/gt-eval-v1.csv
 
 # Run evaluation (can be repeated with same results)
-uv run python -m evals.eval_orchestrator --csv evals/gt-eval-v1.csv
+poetry run python -m evals.eval_orchestrator --csv evals/gt-eval-v1.csv
 ```
 
 ### Custom Models
 
 ```bash
-uv run python -m evals.eval_orchestrator \
+poetry run python -m evals.eval_orchestrator \
     --csv evals/gt-sample.csv \
     --agent-model gpt-4o \
     --judge-model gpt-4o-mini
@@ -409,17 +409,17 @@ uv run python -m evals.eval_orchestrator \
 
 ```bash
 # Generate more questions per document (shorter content chunks)
-uv run python -m evals.generate_data \
+poetry run python -m evals.generate_data \
     --chars-per-question 500 \
     --output evals/ground_truth_detailed.csv
 
 # Use a more powerful model for generation
-uv run python -m evals.generate_data \
+poetry run python -m evals.generate_data \
     --model gpt-4o \
     --output evals/ground_truth_gpt4.csv
 
 # Generate from shorter documents with custom filtering
-uv run python -m evals.generate_data \
+poetry run python -m evals.generate_data \
     --min-content-length 500 \
     --exclude draft test wip unpublished \
     --output evals/ground_truth_filtered.csv
@@ -433,7 +433,7 @@ Interactive Streamlit app to view, edit, and curate ground truth questions.
 
 ```bash
 # Launch the inspector
-uv run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
+poetry run streamlit run evals/inspect_ground_truth.py -- --input evals/ground_truth_evidently.csv
 ```
 
 **Features:**
@@ -461,10 +461,10 @@ Interactive Streamlit app to deep dive into evaluation results.
 
 ```bash
 # Launch the inspector (auto-detects latest results)
-uv run streamlit run evals/inspect_eval_results.py
+poetry run streamlit run evals/inspect_eval_results.py
 
 # Or specify a results file
-uv run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
+poetry run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
 ```
 
 **Features:**

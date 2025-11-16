@@ -1,0 +1,202 @@
+================================================================================
+Re-indexing Companies with 0 Chunks
+================================================================================
+Re-indexing 3 companies
+
+Checking Elasticsearch connection...
+✓ Elasticsearch is connected
+
+Initializing SEC EDGAR client...
+✓ SEC client initialized
+✓ Using cache directory: sec_downloads
+
+
+[1/3]
+
+================================================================================
+Processing: Home Depot, Inc.
+CIK: 0000354950
+Incident: Vendor credential compromise
+Years of interest: [2014]
+================================================================================
+Fetching filings for last 12 years...
+Fetching filings for CIK 0000354950...
+Found 1000 filings in the last 12 years.
+Found 1000 total filings
+Filtered to 133 relevant filings (10-K, 10-Q, 8-K)
+
+  Processing: 10-Q filed 2017-11-21 (hd_10qx10292017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 6 chunks...
+Indexed 6 chunks into sec_filings
+    ✓ Indexed 6 chunks
+
+  Processing: 8-K filed 2017-11-14 (hd_8kx10292017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 3 chunks...
+Indexed 3 chunks into sec_filings
+    ✓ Indexed 3 chunks
+
+  Processing: 8-K filed 2017-09-14 (hd_8kx09142017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 3 chunks...
+Indexed 3 chunks into sec_filings
+    ✓ Indexed 3 chunks
+
+  Processing: 8-K filed 2017-09-07 (hd_8kx0906-ua2017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 4 chunks...
+Indexed 4 chunks into sec_filings
+    ✓ Indexed 4 chunks
+
+  Processing: 10-Q filed 2017-08-22 (hd_10qx07302017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 7 chunks...
+Indexed 7 chunks into sec_filings
+    ✓ Indexed 7 chunks
+
+  Processing: 8-K filed 2017-08-15 (hd_8kx07302017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 3 chunks...
+Indexed 3 chunks into sec_filings
+    ✓ Indexed 3 chunks
+
+  Processing: 8-K filed 2017-06-05 (hd_8kx06052017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 4 chunks...
+Indexed 4 chunks into sec_filings
+    ✓ Indexed 4 chunks
+
+  Processing: 8-K filed 2017-05-26 (hd_8kx05242017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 5 chunks...
+Indexed 5 chunks into sec_filings
+    ✓ Indexed 5 chunks
+
+  Processing: 10-Q filed 2017-05-23 (hd_10qx04302017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 8 chunks...
+Indexed 8 chunks into sec_filings
+    ✓ Indexed 8 chunks
+
+  Processing: 8-K filed 2017-05-22 (hd_8kx05182017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 4 chunks...
+Indexed 4 chunks into sec_filings
+    ✓ Indexed 4 chunks
+
+  Processing: 8-K filed 2017-05-16 (hd_8kx04302017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 3 chunks...
+Indexed 3 chunks into sec_filings
+    ✓ Indexed 3 chunks
+
+  Processing: 10-K filed 2017-03-23 (hd-01292017x10xk.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 239 chunks...
+Indexed 239 chunks into sec_filings
+    ✓ Indexed 239 chunks
+
+  Processing: 8-K filed 2017-02-21 (hd_8kx01292017.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 2 chunks...
+Indexed 2 chunks into sec_filings
+    ✓ Indexed 2 chunks
+
+✓ Completed Home Depot, Inc.
+  Filings indexed: 13/133
+  Total chunks indexed: 291
+
+Waiting 2 seconds before next company...
+
+
+[2/3]
+
+================================================================================
+Processing: Uber Technologies, Inc.
+CIK: 0001543151
+Incident: Credential compromise, concealed breach
+Years of interest: [2016]
+================================================================================
+Fetching filings for last 10 years...
+Fetching filings for CIK 0001543151...
+Found 1000 filings in the last 10 years.
+Found 1000 total filings
+Filtered to 121 relevant filings (10-K, 10-Q, 8-K)
+
+  Processing: 8-K filed 2019-12-26 (e19531_uber-8k.htm)
+    ✓ Already downloaded, using cached file
+    Parsing...
+    Chunking...
+    Indexing 27 chunks...
+Indexed 27 chunks into sec_filings
+    ✓ Indexed 27 chunks
+
+✓ Completed Uber Technologies, Inc.
+  Filings indexed: 1/121
+  Total chunks indexed: 27
+
+Waiting 2 seconds before next company...
+
+
+[3/3]
+
+================================================================================
+Processing: Sony Group Corp.
+CIK: 0000313838
+Incident: Nation-state attack
+Years of interest: [2014]
+================================================================================
+Fetching filings for last 12 years...
+Fetching filings for CIK 0000313838...
+Found 733 filings in the last 12 years.
+Found 733 total filings
+Filtered to 0 relevant filings (10-K, 10-Q, 8-K)
+⚠️  No relevant filings found for Sony Group Corp.
+
+
+================================================================================
+RE-INDEXING SUMMARY
+================================================================================
+Companies processed: 3
+Successfully indexed: 2
+Total filings indexed: 14
+Total chunks indexed: 318
+Time elapsed: 0.1 minutes
+
+Per-company results:
+  ✓ Home Depot, Inc.: 291 chunks
+  ✓ Uber Technologies, Inc.: 27 chunks
+  ✗ Sony Group Corp.: 0 chunks
+      Error: No relevant filings found
+
+================================================================================
+FINAL INDEX STATUS
+================================================================================
+Total documents in 'sec_filings' index: 107,409

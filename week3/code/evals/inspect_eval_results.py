@@ -5,7 +5,7 @@ Interactive tool to inspect evaluation results in depth.
 View reports, filter by criteria, inspect tool calls, and identify issues.
 
 Usage:
-    uv run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
+    poetry run streamlit run evals/inspect_eval_results.py -- --input reports/eval-run-2025-10-23-12-00.bin
 """
 
 import streamlit as st
@@ -119,7 +119,7 @@ def main():
     
     if not Path(input_file).exists():
         st.error(f"❌ File not found: {input_file}")
-        st.info("💡 Run an evaluation first:\n```bash\nuv run python -m evals.eval_orchestrator --csv evals/gt-sample.csv\n```")
+        st.info("💡 Run an evaluation first:\n```bash\npoetry run python -m evals.eval_orchestrator --csv evals/gt-sample.csv\n```")
         st.stop()
     
     # Load data
