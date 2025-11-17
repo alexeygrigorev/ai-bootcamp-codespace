@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %}My Tasks - To-Do{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Left: Quick add + filters -->
+  <div class="space-y-6">
+    <section class="bg-white p-4 rounded shadow">
+      <h2 class="text-lg font-semibold">My Tasks</h2>
+      <p class="text-sm text-gray-500 mt-1">Quick add a task</p>
+
+      <form method="post" action="{% url 'task_create' %}" class="mt-3 space-y-2">
+        {% csrf_token %}
+        {{ quick_form.non_field_errors }}
+        <div>
+          {{ quick_form.title.label_tag }}
+          {{ quick_form.title }}
+        </div>
+        <div class="flex space-x-2">
+          <div class="flex-1">
+            {{ quick_form.priority.label_tag }}
+            {{ quick_form.priority }}
+          </div>
+          <div class="flex-1">
+            {{ quick_form.due_date.label_tag }}
+            {{ quick_form.due_date }}
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <button type="submit" class="bg-green-600 text-white px-3 py-1 rounded">Add ✍️</button>
+          <a href="{% url 'task_create' %}" class="text-sm text-gray-600 self-center">More options</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="bg-white p-4 rounded shadow">
+      <h3 class="font-medium">Filters</h3>
+      <form method="get" action="{% url 'home' %}" class="mt-3 space-y-3">
+        <div>
+          <label class="block text-sm">Status</label>
+          <select name="status" class="w-full border rounded px-2 py-1 text-sm">
+            <option value="all" {% if filters.status == 'all' %}selected{% endif %}>All</option>
+            <option value="open" {% if filters.status == 'open' %}selected{% endif %}>Open</option>
+            <option value="done" {% if filters.status == 'done' %}selected{% endif %}>Completed</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm">Priority</label>
+          <select name="priority" class="w-full border rounded px-2 py-1 text-sm">
+            <option value="" {% if not filters.priority %}selected{% endif %}>Any</option>
+            <option value="high" {% if filters.priority == 'high' %}selected{% endif %}>High</option>
+            <option value="medium" {% if filters.priority == 'medium' %}selected{% endif %}>Medium</option>
+            <option value="low" {% if filters.priority == 'low' %}selected{% endif %}>Low</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm">Team</label>
+          <select name="team" class="w-full border rounded px-2 py-1 text-sm">
+            <option value="">Any</option>
+            {% if teams %}
+              {% for t in teams %}
+                <option value="{{ t.id }}" {% if filters.team == t.id|stringformat:"s" %}selected{% endif %}>{{ t.name }}</option>
+              {% endfor %}
+            {% endif %}
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm">Due</label>
+          <select name="due" class="w-full border rounded px-2 py-1 text-sm">
+            <option value="">Any</option>
+            <option value="today" {% if filters.due == 'today' %}selected{% endif %}>Due today</option>
+            <option value="7days" {% if filters.due == '7days' %}selected{% endif %}>Next 7 days</option>
+            <option value="overdue" {% if filters.due == 'overdue' %}selected{% endif %}>Overdue</option>
+          </select>
+        </div>
+
+        <div class="flex space-x-2">
+          <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded">Apply</button>
+          <a href="{% url 'home' %}" class="text-sm text-gray-600 self-center">Reset</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="bg-white p-4 rounded shadow">
+      <h3 class="font-medium">Reminders</h3>
+      {% if reminders %}
+        <ul class="mt-2 space-y-2 text-sm">
+          {% for r in reminders %}
+            <li class="flex items-center justify-between">
+              <span>{{ r.title }}</span>
+              <span class="text-red-600 text-xs">{{ r.due_date|date:'M j, Y H:i' }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="mt-2 text-sm text-gray-500">No reminders for today. 😊</p>
+      {% endif %}
+    </section>
+  </div>
+
+  <!-- Right: Task list -->
+  <div class="lg:col-span-2">
+    <section class="bg-white p-4 rounded shadow">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Tasks</h2>
+        <a href="{% url 'task_create' %}" class="text-sm text-blue-600">Create new</a>
+      </div>
+
+      <div class="mt-4 space-y-3">
+        {% if tasks %}
+          {% for task in tasks %}
+            <article class="p-3 rounded border flex items-start justify-between {% if task.is_completed %}opacity-60 line-through text-gray-500{% endif %}">
+              <div class="flex items-start space-x-3">
+                <form method="post" action="{% url 'task_toggle_complete' task.pk %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="action" value="toggle" />
+                  <button type="submit" class="mr-2 bg-white border rounded-full p-2 text-sm" title="Toggle complete">
+                    {% if task.is_completed %}
+                      <i class="fas fa-check-circle text-green-500"></i>
+                    {% else %}
+                      <i class="far fa-circle text-gray-400"></i>
+                    {% endif %}
+                  </button>
+                </form>
+
+                <div>
+                  <a href="{% url 'task_detail' task.pk %}" class="font-medium text-gray-800">{{ task.title }}</a>
+                  <div class="text-sm text-gray-500">{{ task.description|truncatechars:120 }}</div>
+
+                  <div class="mt-2 flex items-center space-x-2 text-xs">
+                    <span class="px-2 py-1 rounded text-white text-xs {% if task.priority == task.PRIORITY_HIGH %}bg-red-600{% elif task.priority == task.PRIORITY_MEDIUM %}bg-yellow-500 text-black{% else %}bg-green-600{% endif %}">
+                      {% if task.priority == task.PRIORITY_HIGH %}High{% elif task.priority == task.PRIORITY_MEDIUM %}Medium{% else %}Low{% endif %}
+                    </span>
+
+                    {% if task.due_date %}
+                      <span class="text-sm">Due: {{ task.due_date|date:'M j, Y H:i' }}</span>
+                    {% endif %}
+
+                    {% if task.team %}
+                      <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Team: {{ task.team.name }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-2">
+                <a href="{% url 'task_edit' task.pk %}" class="text-sm text-gray-600">Edit</a>
+                <a href="{% url 'task_detail' task.pk %}" class="text-sm text-gray-600">Details</a>
+
+                <form method="post" action="{% url 'task_delete' task.pk %}" onsubmit="return confirm('Delete this task?');">
+                  {% csrf_token %}
+                  <button type="submit" class="text-red-600 text-sm">Delete</button>
+                </form>
+              </div>
+            </article>
+          {% endfor %}
+        {% else %}
+          <p class="text-gray-500">No tasks found.</p>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h1 class="text-xl font-semibold mb-4">Login</h1>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div>
+      <label for="id_username" class="block text-sm">Username</label>
+      <input id="id_username" name="username" type="text" class="w-full border rounded px-2 py-1" required />
+    </div>
+    <div class="mt-2">
+      <label for="id_password" class="block text-sm">Password</label>
+      <input id="id_password" name="password" type="password" class="w-full border rounded px-2 py-1" required />
+    </div>
+    <div class="mt-4 flex items-center justify-between">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Login</button>
+      <a href="{% url 'signup' %}" class="text-sm text-gray-600">Create account</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Team - {{ team.name }} - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+  <div class="flex items-center justify-between">
+    <h1 class="text-xl font-semibold">{{ team.name }}</h1>
+    <div class="text-sm text-gray-500">Owner: {{ team.owner.username }}</div>
+  </div>
+
+  <div class="mt-4">
+    <h2 class="font-medium">Members</h2>
+    <div class="mt-2 space-y-2">
+      {% for m in members %}
+        <div class="p-2 border rounded flex items-center justify-between">
+          <div>
+            <div class="font-medium">{{ m.user.username }}</div>
+            <div class="text-sm text-gray-500">Role: {{ m.get_role_display }}</div>
+          </div>
+          <div>
+            {% if user.id != m.user.id and team.owner_id != m.user.id %}
+              <form method="post" action="{% url 'team_member_remove' team.pk m.user.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="text-red-600">Remove</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-4">
+      <h3 class="font-medium">Add member</h3>
+      <form method="post" action="{% url 'team_member_add' team.pk %}" class="mt-2">
+        {% csrf_token %}
+        {{ add_form.non_field_errors }}
+        <div>
+          {{ add_form.username.label_tag }}
+          {{ add_form.username }}
+          {{ add_form.username.errors }}
+        </div>
+        <div class="mt-2">
+          <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

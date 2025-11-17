@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Team - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h1 class="text-xl font-semibold mb-4">Create Team</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+      {{ form.name.label_tag }}
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Create</button>
+      <a href="{% url 'teams' %}" class="ml-2 text-gray-600">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

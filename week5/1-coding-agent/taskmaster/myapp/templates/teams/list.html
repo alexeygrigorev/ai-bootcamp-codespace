@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}My Teams - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+  <div class="flex items-center justify-between">
+    <h1 class="text-xl font-semibold">My Teams</h1>
+    <a href="{% url 'team_create' %}" class="text-blue-600">Create Team</a>
+  </div>
+
+  <div class="mt-4 space-y-3">
+    {% if teams %}
+      {% for team in teams %}
+        <div class="p-3 border rounded flex items-center justify-between">
+          <div>
+            <div class="font-medium">{{ team.name }}</div>
+            <div class="text-sm text-gray-500">Owner: {{ team.owner.username }}</div>
+          </div>
+          <div>
+            <a href="{% url 'team_manage' team.pk %}" class="text-sm text-gray-600">Manage</a>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-gray-500">You are not a member of any teams yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
