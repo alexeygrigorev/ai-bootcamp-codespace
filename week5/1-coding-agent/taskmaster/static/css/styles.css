@@ -1,0 +1,178 @@
+/* Custom styles for Django Template */
+
+/* Main h1 styling */
+main h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Additional custom styles */
+.custom-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Custom card styling */
+.custom-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 2rem;
+        padding: 0.75rem;
+    }
+}
+
+/* ==========================
+   Utility classes to complement Tailwind
+   Minimal, used when Tailwind utilities are insufficient
+   ========================== */
+
+/* Priority badges */
+.priority-low {
+    background-color: #d1fae5; /* green-100 */
+    color: #065f46; /* green-800 */
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+.priority-medium {
+    background-color: #fef3c7; /* yellow-100 */
+    color: #92400e; /* amber-800 */
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+.priority-high {
+    background-color: #fee2e2; /* red-100 */
+    color: #7f1d1d; /* red-800 */
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+
+/* Status styles */
+.task-completed {
+    opacity: 0.65;
+    text-decoration: line-through;
+}
+.task-open {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* Button variants (minimal - Tailwind preferred in templates) */
+.btn-primary {
+    background-color: #2563eb; /* blue-600 */
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+}
+.btn-primary:hover { opacity: 0.95; }
+
+.btn-secondary {
+    background-color: #6b7280; /* gray-500 */
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+}
+.btn-secondary:hover { opacity: 0.95; }
+
+.btn-danger {
+    background-color: #dc2626; /* red-600 */
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+}
+.btn-danger:hover { opacity: 0.95; }
+
+/* Form spacing */
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: #374151; /* gray-700 */
+}
+.form-helptext {
+    font-size: 0.875rem;
+    color: #6b7280; /* gray-500 */
+}
+
+/* Alerts - ensure consistent spacing with messages framework */
+.alert {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Responsive list layout for tasks/teams/cards */
+.task-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+.task-card {
+    /* Small wrapper to ensure consistent card appearance */
+}
+
+@media (min-width: 768px) {
+    .task-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .task-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small utility helpers */
+.text-muted { color: #6b7280; }
+.mr-1 { margin-right: 0.25rem; }
+
+/* Keep file minimal - prefer Tailwind utilities in templates */

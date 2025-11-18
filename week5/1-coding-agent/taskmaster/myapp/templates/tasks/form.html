@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if task %}Edit Task{% else %}Create Task{% endif %} - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+  <h1 class="text-xl font-semibold mb-4">{% if task %}Edit Task{% else %}Create Task{% endif %}</h1>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div>
+      {{ form.title.label_tag }}
+      {{ form.title }}
+      {{ form.title.errors }}
+    </div>
+
+    <div>
+      {{ form.description.label_tag }}
+      {{ form.description }}
+      {{ form.description.errors }}
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        {{ form.priority.label_tag }}
+        {{ form.priority }}
+        {{ form.priority.errors }}
+      </div>
+      <div>
+        {{ form.due_date.label_tag }}
+        {{ form.due_date }}
+        {{ form.due_date.errors }}
+      </div>
+    </div>
+
+    <div>
+      {{ form.team.label_tag }}
+      {{ form.team }}
+      {{ form.team.errors }}
+    </div>
+
+    <div>
+      {{ form.shared_with.label_tag }}
+      {{ form.shared_with }}
+      {{ form.shared_with.errors }}
+    </div>
+
+    <div class="flex space-x-2">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Save</button>
+      <a href="{% url 'home' %}" class="px-4 py-2 rounded border text-gray-600">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

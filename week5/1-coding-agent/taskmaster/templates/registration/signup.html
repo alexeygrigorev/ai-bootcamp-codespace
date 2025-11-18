@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up - To-Do{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+  <h1 class="text-xl font-semibold mb-4">Create an account</h1>
+  <form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div>
+      {{ form.username.label_tag }}
+      {{ form.username|add_class:'w-full border rounded px-2 py-1' }}
+      {{ form.username.errors }}
+    </div>
+
+    <div>
+      {{ form.password1.label_tag }}
+      {{ form.password1|add_class:'w-full border rounded px-2 py-1' }}
+      {{ form.password1.errors }}
+    </div>
+
+    <div>
+      {{ form.password2.label_tag }}
+      {{ form.password2|add_class:'w-full border rounded px-2 py-1' }}
+      {{ form.password2.errors }}
+    </div>
+
+    <div class="mt-4">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Sign up</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
