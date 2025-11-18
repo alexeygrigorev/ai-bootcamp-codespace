@@ -784,6 +784,8 @@ Checks code quality:
 - Push to `main`, `master`, or `develop` branches
 - Pull requests to `main`, `master`, or `develop`
 
+**Note**: Workflow documentation is included in this README. See the workflow files themselves (`.github/workflows/*.yml`) for detailed configuration.
+
 ### Setting Up CI/CD
 
 #### Required GitHub Secrets
