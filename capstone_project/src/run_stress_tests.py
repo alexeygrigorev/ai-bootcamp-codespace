@@ -24,6 +24,11 @@ from src.sec_edgar_client import SECEdgarClient
 from src.company_cik_lookup import lookup_company_cik, find_companies_in_text, lookup_by_ticker, get_historical_name_info
 from src.subsidiary_cik_mapping import find_parent_cik_for_subsidiary, get_parent_company_info
 
+# Import logging
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from monitoring.agent_logging import log_run, save_log
+
 # Import the tools and agent setup (same as notebook)
 def lookup_subsidiary_parent(company_name: str, incident_date: Optional[str] = None) -> Dict[str, Any]:
     """
@@ -443,6 +448,14 @@ async def run_question(question: Dict[str, str]) -> Dict[str, Any]:
         duration = (end_time - start_time).total_seconds()
         
         print(f"✓ Completed in {duration:.1f} seconds")
+        
+        # Log the agent run
+        try:
+            log_entry = log_run(cybersecurity_agent, result, user_prompt=question['question_text'])
+            log_path = save_log(log_entry)
+            print(f"  📝 Logged to: {log_path}")
+        except Exception as e:
+            print(f"  ⚠️  Failed to log: {e}")
         
         return {
             'question_number': question['question_number'],

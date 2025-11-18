@@ -22,6 +22,7 @@ elasticsearch = ">=8.0.0,<9.0.0"
 qdrant-client = {extras = ["fastembed"], version = ">=1.15.1"}
 sentence-transformers = ">=5.1.1"
 python-dotenv = ">=1.2.1"
+streamlit = "^1.51.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"

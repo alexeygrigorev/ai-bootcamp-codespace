@@ -1,0 +1,171 @@
+name: Run Evaluations
+
+on:
+  push:
+    branches: [ main, master ]
+    # Only run on push to main/master (not on every branch)
+  pull_request:
+    branches: [ main, master ]
+    # Only run on PRs to main/master, and only if labeled
+    types: [opened, synchronize, reopened, labeled]
+  workflow_dispatch:
+    # Manual trigger for on-demand evaluations
+  schedule:
+    # Run evaluations weekly on Monday at 2 AM UTC
+    - cron: '0 2 * * 1'
+
+jobs:
+  stress-tests:
+    name: Stress Tests
+    runs-on: ubuntu-latest
+    # Only run if:
+    # - It's a push to main/master, OR
+    # - It's a PR with 'run-evaluations' label, OR
+    # - It's a scheduled run, OR
+    # - It's a manual trigger
+    if: |
+      (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) ||
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'run-evaluations')) ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch'
+    
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: false
+          ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+        ports:
+          - 9200:9200
+        options: >-
+          --health-cmd "curl http://localhost:9200"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      working-directory: ./capstone_project
+      run: poetry install --no-interaction --no-root
+    
+    - name: Wait for Elasticsearch
+      run: |
+        for i in {1..30}; do
+          if curl -f http://localhost:9200 > /dev/null 2>&1; then
+            echo "Elasticsearch is ready"
+            exit 0
+          fi
+          echo "Waiting for Elasticsearch..."
+          sleep 2
+        done
+        echo "Elasticsearch failed to start"
+        exit 1
+    
+    - name: Index ground truth filings
+      working-directory: ./capstone_project
+      run: poetry run python data/check_and_index_ground_truth.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        SEC_USER_AGENT: "CI/CD Test Runner (test@example.com)"
+      continue-on-error: true
+    
+    - name: Run stress tests
+      working-directory: ./capstone_project
+      run: poetry run python src/run_stress_tests.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        SEC_USER_AGENT: "CI/CD Test Runner (test@example.com)"
+      continue-on-error: true
+    
+    - name: Upload stress test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: stress-test-results
+        path: |
+          capstone_project/eval/stress_test_results.json
+          capstone_project/logs/*.json
+        retention-days: 30
+
+  judge-evaluation:
+    name: Judge Evaluation
+    runs-on: ubuntu-latest
+    needs: stress-tests
+    if: always() && (needs.stress-tests.result == 'success' || needs.stress-tests.result == 'failure')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Download stress test results
+      uses: actions/download-artifact@v4
+      with:
+        name: stress-test-results
+        path: capstone_project/
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: latest
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      working-directory: ./capstone_project
+      run: poetry install --no-interaction --no-root
+    
+    - name: Run judge evaluation
+      working-directory: ./capstone_project
+      run: poetry run python eval/judge_evaluator.py
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        SEC_USER_AGENT: "CI/CD Test Runner (test@example.com)"
+      continue-on-error: true
+    
+    - name: Upload judge evaluation results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: judge-evaluation-results
+        path: capstone_project/eval/judge_evaluation_results.json
+        retention-days: 30
+    
+    - name: Display evaluation summary
+      working-directory: ./capstone_project
+      run: |
+        if [ -f eval/judge_evaluation_results.json ]; then
+          poetry run python -c "
+          import json
+          with open('eval/judge_evaluation_results.json') as f:
+            data = json.load(f)
+          print('📊 Judge Evaluation Summary:')
+          print(f'  Total Questions: {data.get(\"total_questions\", 0)}')
+          print(f'  Evaluated: {data.get(\"evaluated\", 0)}')
+          print(f'  Average Score: {data.get(\"average_score\", 0):.2%}')
+          print(f'  Criteria Pass Rate: {data.get(\"criteria_pass_rate\", 0):.2%}')
+          "
+        else
+          echo "No judge evaluation results found"
+        fi
+

@@ -1,0 +1,35 @@
+Q#,Company,CIK,Ticker,Form Type,Filing Date,Accession Number,Key Item,Incident Date
+1,UnitedHealth Group Inc.,731766,UNH,8-K,2/22/24,0000731766-24-000045,Item 1.05 Material Cybersecurity Incidents,
+1,UnitedHealth Group Inc.,731766,UNH,8-K/A,3/8/24,0000731766-24-000085,Amendment No. 1 - Progress update,
+1,UnitedHealth Group Inc.,731766,UNH,8-K/A,4/24/24,0000731766-24-000150,Amendment No. 2 - Data assessment update,
+2,Capital One Financial Corp.,927628,COF,8-K,7/29/19,Not explicitly provided but referenced,Data security incident disclosure,
+3,"Home Depot, Inc.",354950,HD,8-K,9/18/14,0000354950-14-000037,Initial breach confirmation,
+3,"Home Depot, Inc.",354950,HD,8-K,11/6/14,0000354950-14-000042,"Breach investigation findings, Items 7.01 and 8.01",
+4,"T-Mobile US, Inc.",1283699,TMUS,8-K,8/16/21,0001193125-21-248002,August 2021 Breach,
+4,"T-Mobile US, Inc.",1283699,TMUS,8-K,1/4/23,Referenced in search results,January 2023 API Attack,
+5,Sony Group Corp. (parent) / Sony Pictures Entertainment (division),0000313838,SONY,10-K/10-Q Disclosures,3/16/15,Disclosed in Sony Corp quarterly/annual reports,Discussed in risk factors and legal proceedings,
+6,Altaba Inc. (formerly Yahoo! Inc.),1011006,AABA,8-K,9/22/16,Referenced in SEC order,Press release attached disclosing 2014 breach,
+6,Altaba Inc. (formerly Yahoo! Inc.),1011006,AABA,SEC Enforcement Order,4/23/18,SEC Release 2018-71,$35 million penalty for disclosure failures,
+7,SolarWinds Corporation,1739942,SWI,8-K,12/14/20,0001628280-20-017451,Item 8.01 Other Events - supply chain attack disclosure,
+7,SolarWinds Corporation,1739942,SWI,8-K,12/17/20,0001628280-20-017620,Item 7.01 Additional disclosure,
+7,SolarWinds Corporation,1739942,SWI,SEC Enforcement,10/29/23,SEC charges,SEC charged SolarWinds and CISO for incomplete disclosure,
+8,"Uber Technologies, Inc.",1543151,UBER,FTC Consent Order (revised),2018,,,
+9,MGM Resorts International,789570,MGM,8-K,9/13/23,0001193125-23-233855,Item 7.01 Regulation FD Disclosure,
+9,MGM Resorts International,789570,MGM,8-K,10/4/23,Referenced,Update on incident and personal data compromise,
+10,Equifax Inc.,33185,EFX,8-K,9/7/17,Referenced,Item 8.01 voluntary disclosure,
+10,First American Financial Corp.,1472787,FAF,8-K,5/28/19,Referenced,Press statement furnished,
+10,First American Financial Corp.,1472787,FAF,SEC Enforcement Order,6/15/21,SEC Release 2021-102,"$487,616 penalty for disclosure control failures",
+11,AT&T Inc.,0000732717,T,8-K,7/12/24,0000732717-24-000046,Item 1.05 Material Cybersecurity Incidents,"April 14-25, 2024 (exfiltration period)"
+12,"Live Nation Entertainment, Inc.",0001335258,LYV,8-K,5/31/24,Referenced in reports,Item 8.01 Other Events (NOT Item 1.05),"April 2 - May 18, 2024"
+13,"Advance Auto Parts, Inc.",0001158449,AAP,8-K,6/14/24,0001158449-24-000162,Item 8.01 Other Events (NOT Item 1.05),"April 14 - May 24, 2024"
+14,"AutoNation, Inc.",0000350698,AN,8-K,6/24/24,0000350698-24-000078,Item 8.01 Other Events,"June 19, 2024 (CDK attack)"
+14,"AutoNation, Inc.",0000350698,AN,8-K,7/15/24,0000350698-24-000085,Item 8.01 Other Events - Financial Impact Update,"June 19, 2024 (CDK attack)"
+15,"Roku, Inc.",0001428439,ROKU,Multiple 8-K filings referenced,2024,Referenced in reports,Likely Item 8.01 or press releases,"March 2024 (first incident), additional accounts April 2024"
+16,23andMe Holding Co.,0001804591,ME,8-K,10/10/23,Referenced,Item 7.01 Regulation FD Disclosure,April - September 2023 (credential stuffing)
+16,23andMe Holding Co.,0001804591,ME,8-K/A,11/30/23,Referenced,Amendment updating scope,April - September 2023 (credential stuffing)
+17,"Henry Schein, Inc.",0001000228,HSIC,8-K,10/15/23,Referenced,"Press release, likely Item 8.01 or 7.01","October 14, 2023 (first), November 27, 2023 (re-encryption)"
+18,The Clorox Company,0000021076,CLX,8-K,9/18/23,Referenced,Item 8.01 Other Events,Aug-23
+18,The Clorox Company,0000021076,CLX,10-Q,3/31/24,Referenced,Ongoing costs disclosure - $57M year-to-date,Aug-23
+19,"Santander Holdings USA, Inc.",0001193593,N/A,Data breach notifications to state AGs,2024-06,N/A (private company in US),Maine AG notification,Late April - Early May 2024
+20,"National Public Data / Jerico Pictures, Inc.",N/A - Private company,N/A,None - Private company,N/A,,,December 2023 - August 2024
+21,Two Sigma Investments LP / Two Sigma Advisers LP,N/A,N/A,SEC Administrative Order,1/16/25,"Release No. 34-102207, IA-6824","Investment model vulnerabilities, compliance failures, whistleblower violations",2019-03 to 2023-08

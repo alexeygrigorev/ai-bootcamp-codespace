@@ -1,12 +1,183 @@
 {
-  "indexing_timestamp": "2025-11-16T15:48:15.907059",
-  "total_filings": 12,
-  "successful": 7,
-  "failed": 5,
-  "total_chunks_indexed": 1199,
-  "new_documents": 876,
-  "total_duration_seconds": 81.06318,
+  "indexing_timestamp": "2025-11-16T19:09:52.514763",
+  "total_filings_checked": 32,
+  "already_indexed": 3,
+  "missing_filings": 29,
+  "successful": 19,
+  "failed": 10,
+  "total_chunks_indexed": 1648,
+  "total_duration_seconds": 147.273959,
   "results": [
+    {
+      "company_name": "UnitedHealth Group Inc.",
+      "cik": "731766",
+      "form_type": "8-K",
+      "filing_date": "2/22/24",
+      "accession_number": "0000731766-24-000045",
+      "status": "success",
+      "chunks_indexed": 22,
+      "error": null
+    },
+    {
+      "company_name": "UnitedHealth Group Inc.",
+      "cik": "731766",
+      "form_type": "8-K/A",
+      "filing_date": "3/8/24",
+      "accession_number": "0000731766-24-000085",
+      "status": "success",
+      "chunks_indexed": 24,
+      "error": null
+    },
+    {
+      "company_name": "UnitedHealth Group Inc.",
+      "cik": "731766",
+      "form_type": "8-K/A",
+      "filing_date": "4/24/24",
+      "accession_number": "0000731766-24-000150",
+      "status": "success",
+      "chunks_indexed": 21,
+      "error": null
+    },
+    {
+      "company_name": "Capital One Financial Corp.",
+      "cik": "927628",
+      "form_type": "8-K",
+      "filing_date": "7/29/19",
+      "accession_number": "Not explicitly provided but referenced",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Failed to download filing"
+    },
+    {
+      "company_name": "Home Depot, Inc.",
+      "cik": "354950",
+      "form_type": "8-K",
+      "filing_date": "9/18/14",
+      "accession_number": "0000354950-14-000037",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Failed to download filing"
+    },
+    {
+      "company_name": "Home Depot, Inc.",
+      "cik": "354950",
+      "form_type": "8-K",
+      "filing_date": "11/6/14",
+      "accession_number": "0000354950-14-000042",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Failed to download filing"
+    },
+    {
+      "company_name": "T-Mobile US, Inc.",
+      "cik": "1283699",
+      "form_type": "8-K",
+      "filing_date": "8/16/21",
+      "accession_number": "0001193125-21-248002",
+      "status": "success",
+      "chunks_indexed": 60,
+      "error": null
+    },
+    {
+      "company_name": "Sony Group Corp. (parent) / Sony Pictures Entertainment (division)",
+      "cik": "0000313838",
+      "form_type": "10-K/10-Q Disclosures",
+      "filing_date": "3/16/15",
+      "accession_number": "Disclosed in Sony Corp quarterly/annual reports",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Could not find matching filing in recent filings"
+    },
+    {
+      "company_name": "Altaba Inc. (formerly Yahoo! Inc.)",
+      "cik": "1011006",
+      "form_type": "8-K",
+      "filing_date": "9/22/16",
+      "accession_number": "0001193125-25-274243",
+      "status": "success",
+      "chunks_indexed": 23,
+      "error": null
+    },
+    {
+      "company_name": "Altaba Inc. (formerly Yahoo! Inc.)",
+      "cik": "1011006",
+      "form_type": "SEC Enforcement Order",
+      "filing_date": "4/23/18",
+      "accession_number": "SEC Release 2018-71",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Could not find matching filing in recent filings"
+    },
+    {
+      "company_name": "SolarWinds Corporation",
+      "cik": "1739942",
+      "form_type": "8-K",
+      "filing_date": "12/14/20",
+      "accession_number": "0001628280-20-017451",
+      "status": "success",
+      "chunks_indexed": 50,
+      "error": null
+    },
+    {
+      "company_name": "SolarWinds Corporation",
+      "cik": "1739942",
+      "form_type": "8-K",
+      "filing_date": "12/17/20",
+      "accession_number": "0001628280-20-017620",
+      "status": "success",
+      "chunks_indexed": 53,
+      "error": null
+    },
+    {
+      "company_name": "SolarWinds Corporation",
+      "cik": "1739942",
+      "form_type": "SEC Enforcement",
+      "filing_date": "10/29/23",
+      "accession_number": "SEC charges",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Could not find matching filing in recent filings"
+    },
+    {
+      "company_name": "Uber Technologies, Inc.",
+      "cik": "1543151",
+      "form_type": "FTC Consent Order (revised)",
+      "filing_date": "2018",
+      "accession_number": null,
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Could not find matching filing in recent filings"
+    },
+    {
+      "company_name": "MGM Resorts International",
+      "cik": "789570",
+      "form_type": "8-K",
+      "filing_date": "9/13/23",
+      "accession_number": "0001193125-23-233855",
+      "status": "success",
+      "chunks_indexed": 22,
+      "error": null
+    },
+    {
+      "company_name": "MGM Resorts International",
+      "cik": "789570",
+      "form_type": "8-K",
+      "filing_date": "10/4/23",
+      "accession_number": "0001193125-23-251667",
+      "status": "success",
+      "chunks_indexed": 64,
+      "error": null
+    },
+    {
+      "company_name": "First American Financial Corp.",
+      "cik": "1472787",
+      "form_type": "SEC Enforcement Order",
+      "filing_date": "6/15/21",
+      "accession_number": "SEC Release 2021-102",
+      "status": "error",
+      "chunks_indexed": 0,
+      "error": "Could not find matching filing in recent filings"
+    },
     {
       "company_name": "AT&T Inc.",
       "cik": "0000732717",
@@ -15,8 +186,7 @@
       "accession_number": "0000732717-24-000046",
       "status": "success",
       "chunks_indexed": 69,
-      "error": null,
-      "document_name": "t-20240506.htm"
+      "error": null
     },
     {
       "company_name": "Live Nation Entertainment, Inc.",
@@ -26,8 +196,7 @@
       "accession_number": "0001335258-24-000107",
       "status": "success",
       "chunks_indexed": 40,
-      "error": null,
-      "document_name": "lyv-20240613.htm"
+      "error": null
     },
     {
       "company_name": "Advance Auto Parts, Inc.",
@@ -37,8 +206,7 @@
       "accession_number": "0001158449-24-000162",
       "status": "success",
       "chunks_indexed": 26,
-      "error": null,
-      "document_name": "aap-20240523.htm"
+      "error": null
     },
     {
       "company_name": "AutoNation, Inc.",
@@ -48,8 +216,7 @@
       "accession_number": "0000350698-24-000078",
       "status": "success",
       "chunks_indexed": 24,
-      "error": null,
-      "document_name": "an-20240619.htm"
+      "error": null
     },
     {
       "company_name": "AutoNation, Inc.",
@@ -59,14 +226,13 @@
       "accession_number": "0000350698-24-000085",
       "status": "success",
       "chunks_indexed": 40,
-      "error": null,
-      "document_name": "an-20240715.htm"
+      "error": null
     },
     {
       "company_name": "Roku, Inc.",
       "cik": "0001428439",
       "form_type": "Multiple 8-K filings referenced",
-      "filing_date": "2024 filings",
+      "filing_date": "2024",
       "accession_number": null,
       "status": "error",
       "chunks_indexed": 0,
@@ -77,10 +243,10 @@
       "cik": "0001804591",
       "form_type": "8-K",
       "filing_date": "10/10/23",
-      "accession_number": null,
-      "status": "error",
-      "chunks_indexed": 0,
-      "error": "Could not find matching filing in recent filings"
+      "accession_number": "0000950170-23-061186",
+      "status": "success",
+      "chunks_indexed": 21,
+      "error": null
     },
     {
       "company_name": "23andMe Holding Co.",
@@ -90,45 +256,43 @@
       "accession_number": "0001193125-23-287449",
       "status": "success",
       "chunks_indexed": 55,
-      "error": null,
-      "document_name": "d242666d8ka.htm"
+      "error": null
     },
     {
       "company_name": "Henry Schein, Inc.",
       "cik": "0001000228",
       "form_type": "8-K",
       "filing_date": "10/15/23",
-      "accession_number": null,
-      "status": "error",
-      "chunks_indexed": 0,
-      "error": "Could not find matching filing in recent filings"
+      "accession_number": "0001000228-23-000046",
+      "status": "success",
+      "chunks_indexed": 21,
+      "error": null
     },
     {
       "company_name": "The Clorox Company",
       "cik": "0000021076",
       "form_type": "8-K",
       "filing_date": "9/18/23",
-      "accession_number": null,
-      "status": "error",
-      "chunks_indexed": 0,
-      "error": "Could not find matching filing in recent filings"
+      "accession_number": "0001206774-23-001174",
+      "status": "success",
+      "chunks_indexed": 16,
+      "error": null
     },
     {
       "company_name": "The Clorox Company",
       "cik": "0000021076",
       "form_type": "10-Q",
-      "filing_date": "Q3 FY2024 (March 31, 2024)",
-      "accession_number": "0000021076-24-000010",
+      "filing_date": "3/31/24",
+      "accession_number": "0000021076-24-000016",
       "status": "success",
-      "chunks_indexed": 945,
-      "error": null,
-      "document_name": "clx-20231231.htm"
+      "chunks_indexed": 997,
+      "error": null
     },
     {
       "company_name": "Santander Holdings USA, Inc.",
       "cik": "0001193593",
       "form_type": "Data breach notifications to state AGs",
-      "filing_date": "Jun-24",
+      "filing_date": "2024-06",
       "accession_number": null,
       "status": "error",
       "chunks_indexed": 0,
