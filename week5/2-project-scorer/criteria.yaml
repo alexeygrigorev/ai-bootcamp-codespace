@@ -1,0 +1,83 @@
+criteria:
+  # Main must-have: Different dataset
+  - name: "Dataset"
+    kind: "single"
+    items:
+      - points: 0
+        description: "The project uses the FAQ dataset from https://github.com/DataTalksClub/faq"
+      - points: 2
+        description: "The project uses an original dataset"
+
+  # Scored criteria for different aspects
+  - name: "Data pipeline"
+    kind: "single"
+    items:
+      - points: 0
+        description: "No data processing pipeline"
+      - points: 1
+        description: "Basic data loading with minimal processing"
+      - points: 2
+        description: "Well-structured data pipeline with ingestion, processing, and indexing steps"
+
+  - name: "Agent implementation"
+    kind: "single"
+    items:
+      - points: 0
+        description: "No agent code or agent code is embedded in notebooks"
+      - points: 1
+        description: "Agent code exists but not well-organized or partially in notebooks"
+      - points: 2
+        description: "Agent code is modular, reusable, and stored in separate Python scripts/modules"
+
+  - name: "Agent evaluation"
+    kind: "single"
+    items:
+      - points: 0
+        description: "No evaluation of the agent"
+      - points: 1
+        description: "Basic evaluation with simple metrics or manual testing"
+      - points: 2
+        description: "Comprehensive evaluation with metrics, test cases, and quality assessment"
+
+  - name: "User interface"
+    kind: "single"
+    items:
+      - points: 0
+        description: "No user interface"
+      - points: 1
+        description: "Basic UI (simple script)"
+      - points: 2
+        description: "Interactive UI (Streamlit, Gradio, or web application)"
+
+  - name: "Code organization"
+    kind: "single"
+    items:
+      - points: 0
+        description: "Everything in one Jupyter notebook or unorganized scripts"
+      - points: 1
+        description: "Code is split into multiple files but organization could be improved"
+      - points: 2
+        description: "Well-organized codebase with clear separation of concerns (modules, functions, classes)"
+
+  - name: "Reproducibility"
+    kind: "single"
+    items:
+      - points: 0
+        description: "No documentation on how to run the project"
+      - points: 1
+        description: "Basic instructions provided but incomplete or unclear"
+      - points: 2
+        description: "Clear setup instructions, dependency management, and easy to reproduce"
+
+  # Documentation checklist
+  - name: "Documentation quality"
+    kind: "checklist"
+    items:
+      - points: 1
+        description: "README has clear project goal and purpose"
+      - points: 1
+        description: "README includes setup/installation instructions"
+      - points: 1
+        description: "README provides usage examples or quickstart guide"
+      - points: 1
+        description: "Project includes visuals (demo video, screenshots, or GIFs)"
